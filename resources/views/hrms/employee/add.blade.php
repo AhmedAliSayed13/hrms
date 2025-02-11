@@ -17,18 +17,18 @@
 
 
     <!-- -------------- Icomoon -------------- -->
-    {!! Html::style('{{assets('')}}assets/fonts/icomoon/icomoon.css') !!}
+    {!! Html::style('{{asset('')}}assets/fonts/icomoon/icomoon.css') !!}
 
     <!-- -------------- CSS - theme -------------- -->
-    {!! Html::style('{{assets('')}}assets/skin/default_skin/css/theme.css') !!}
+    {!! Html::style('{{asset('')}}assets/skin/default_skin/css/theme.css') !!}
 
     <!-- -------------- CSS - allcp forms -------------- -->
-    {!! Html::style('{{assets('')}}assets/allcp/forms/css/forms.css') !!}
+    {!! Html::style('{{asset('')}}assets/allcp/forms/css/forms.css') !!}
 
-    {!! Html::style('{{assets('')}}assets/custom.css') !!}
+    {!! Html::style('{{asset('')}}assets/custom.css') !!}
 
     <!-- -------------- Favicon -------------- -->
-    <link rel="shortcut icon" href="{{assets('')}}assets/img/favicon.png">
+    <link rel="shortcut icon" href="{{asset('')}}assets/img/favicon.png">
 
     <!-- -------------- IE8 HTML5 support  -------------- -->
     <!--[if lt IE 9]>
@@ -1228,38 +1228,38 @@
 
     <!-- -------------- jQuery -------------- -->
 
-    {!! Html::script('{{assets('')}}assets/js/jquery/jquery-1.11.3.min.js') !!}
-    {!! Html::script('{{assets('')}}assets/js/jquery/jquery_ui/jquery-ui.min.js') !!}
+    {!! Html::script('{{asset('')}}assets/js/jquery/jquery-1.11.3.min.js') !!}
+    {!! Html::script('{{asset('')}}assets/js/jquery/jquery_ui/jquery-ui.min.js') !!}
 
     <!-- -------------- HighCharts Plugin -------------- -->
-    {!! Html::script('{{assets('')}}assets/js/plugins/highcharts/highcharts.js') !!}
+    {!! Html::script('{{asset('')}}assets/js/plugins/highcharts/highcharts.js') !!}
 
     <!-- -------------- MonthPicker JS -------------- -->
-    {!! Html::script('{{assets('')}}assets/allcp/forms/js/jquery-ui-monthpicker.min.js') !!}
-    {!! Html::script('{{assets('')}}assets/allcp/forms/js/jquery-ui-datepicker.min.js') !!}
-    {!! Html::script('{{assets('')}}assets/allcp/forms/js/jquery.spectrum.min.js') !!}
-    {!! Html::script('{{assets('')}}assets/allcp/forms/js/jquery.stepper.min.js') !!}
+    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery-ui-monthpicker.min.js') !!}
+    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery-ui-datepicker.min.js') !!}
+    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery.spectrum.min.js') !!}
+    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery.stepper.min.js') !!}
 
 
     <!-- -------------- Plugins -------------- -->
-    {!! Html::script('{{assets('')}}assets/allcp/forms/js/jquery.validate.min.js') !!}
-    {!! Html::script('{{assets('')}}assets/allcp/forms/js/jquery.steps.min.js') !!}
+    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery.validate.min.js') !!}
+    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery.steps.min.js') !!}
 
     <!-- -------------- Theme Scripts -------------- -->
-    {!! Html::script('{{assets('')}}assets/js/utility/utility.js') !!}
-    {!! Html::script('{{assets('')}}assets/js/demo/demo.js') !!}
-    {!! Html::script('{{assets('')}}assets/js/main.js') !!}
-    {!! Html::script('{{assets('')}}assets/js/demo/widgets_sidebar.js') !!}
-    {!! Html::script('{{assets('')}}assets/js/custom_form_wizard.js') !!}
+    {!! Html::script('{{asset('')}}assets/js/utility/utility.js') !!}
+    {!! Html::script('{{asset('')}}assets/js/demo/demo.js') !!}
+    {!! Html::script('{{asset('')}}assets/js/main.js') !!}
+    {!! Html::script('{{asset('')}}assets/js/demo/widgets_sidebar.js') !!}
+    {!! Html::script('{{asset('')}}assets/js/custom_form_wizard.js') !!}
 
-    {!! Html::script ('{{assets('')}}assets/js/pages/forms-widgets.js')!!}
+    {!! Html::script ('{{asset('')}}assets/js/pages/forms-widgets.js')!!}
     @push('scripts')
-    <script src="{{assets('')}}assets/js/custom_form_wizard.js"></script>
+    <script src="{{asset('')}}assets/js/custom_form_wizard.js"></script>
     @endpush
 
     <!-- -------------- Select2 JS -------------- -->
-    <script src="{{assets('')}}assets/js/plugins/select2/select2.min.js"></script>
-    <script src="{{assets('')}}assets/js/function.js"></script>
+    <script src="{{asset('')}}assets/js/plugins/select2/select2.min.js"></script>
+    <script src="{{asset('')}}assets/js/function.js"></script>
 
 
 

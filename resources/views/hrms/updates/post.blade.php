@@ -16,7 +16,7 @@
                                         <br />
                                         <div class="small-help-block"> {{\Auth::user()->name}}</div>
                                         @else
-                                        <img src="{{assets('')}}assets/img/avatars/profile_pic.png" width="80px"
+                                        <img src="{{asset('')}}assets/img/avatars/profile_pic.png" width="80px"
                                             height="80px">
                                         <br />
                                         <div class="small-help-block"> {{\Auth::user()->name}}</div>
@@ -52,7 +52,7 @@
                                             placeholder="Type your reply in 360 characters"
                                             style="padding-left:100px"></textarea>
                                         <label for="comment" class="field-icon">
-                                            <img src="http://alliance-html.themerex.net{{assets('')}}assets/img/avatars/profile_avatar.jpg"
+                                            <img src="http://alliance-html.themerex.net{{asset('')}}assets/img/avatars/profile_avatar.jpg"
                                                 width="80px" height="80px" style="padding-top: 10px; padding-left: 8px">
                                         </label>
                                         <div class="input-footer br-b-l-r3 br-b-r-r3">
@@ -83,7 +83,7 @@
                             <img src="{{\Auth::user()->employee->photo}}" width="80px" height="80px">
                             <div class="small-help-block"> {{getUserData($suggestion->user_id)['name']}}</div>
                             @else
-                            <img src="{{assets('')}}assets/img/avatars/profile_pic.png" width="80px" height="80px">
+                            <img src="{{asset('')}}assets/img/avatars/profile_pic.png" width="80px" height="80px">
                             <div class="small-help-block"> {{getUserData($suggestion->user_id)['name']}}</div>
                             @endif
                         </div>

@@ -120,9 +120,9 @@
 
 </div>
 @push('styles')
-<link rel="stylesheet" type="text/css" href="{{assets('')}}assets/allcp/forms/css/bootstrap-select.css">
+<link rel="stylesheet" type="text/css" href="{{asset('')}}assets/allcp/forms/css/bootstrap-select.css">
 @endpush
 @push('scripts')
-<script src="{{assets('')}}assets/allcp/forms/js/bootstrap-select.js"></script>
+<script src="{{asset('')}}assets/allcp/forms/js/bootstrap-select.js"></script>
 @endpush
 @endsection

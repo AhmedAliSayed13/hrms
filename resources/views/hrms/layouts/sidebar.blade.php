@@ -6,7 +6,7 @@
             <img src="{{asset('photos/'.Auth::user()->employee->photo)}}" width="40px" height="30px"
                 class="img-responsive">
             @else
-            <img src="{{assets('')}}assets/img/avatars/profile_pic.png" class="img-responsive">
+            <img src="{{asset('')}}assets/img/avatars/profile_pic.png" class="img-responsive">
             @endif
 
         </a>

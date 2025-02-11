@@ -122,7 +122,7 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>
-<script src="{{assets('')}}assets/js/custom.js"></script>
-<script src="{{assets('')}}assets/allcp/forms/js/bootstrap-select.js"></script>
+<script src="{{asset('')}}assets/js/pages/forms-widgets.js"></script>
+<script src="{{asset('')}}assets/js/custom.js"></script>
+<script src="{{asset('')}}assets/allcp/forms/js/bootstrap-select.js"></script>
 @endpush

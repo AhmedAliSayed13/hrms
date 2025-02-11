@@ -8,7 +8,7 @@
                     <br />
                     <div class="small-help-block"> {{\Auth::user()->name}}</div>
                     @else
-                    <img src="{{assets('')}}assets/img/avatars/profile_pic.png" width="80px" height="80px">
+                    <img src="{{asset('')}}assets/img/avatars/profile_pic.png" width="80px" height="80px">
                     <br />
                     <div class="small-help-block"> {{\Auth::user()->name}}</div>
                     @endif
@@ -37,7 +37,7 @@
                     <textarea class="gui-textarea" id="comment" rows="6" placeholder="Type your reply in 360 letters"
                         style="padding-left:100px; height:130px" maxlength="360" name="comment"></textarea>
                     <label for="comment" class="field-icon">
-                        <img src="http://alliance-html.themerex.net{{assets('')}}assets/img/avatars/profile_avatar.jpg"
+                        <img src="http://alliance-html.themerex.net{{asset('')}}assets/img/avatars/profile_avatar.jpg"
                             width="80px" height="80px" style="padding-top: 10px; padding-left: 4px">
                         <div style="padding-left:560px">
                             <input type="submit" class="btn btn-success" value="Reply">

@@ -227,5 +227,5 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{assets('')}}assets/js/custom.js"></script>
+<script src="{{asset('')}}assets/js/custom.js"></script>
 @endpush

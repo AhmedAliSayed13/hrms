@@ -224,6 +224,6 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{assets('')}}assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{asset('')}}assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>
 
 @endpush

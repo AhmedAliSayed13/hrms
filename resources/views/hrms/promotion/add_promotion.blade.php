@@ -144,6 +144,6 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>
-<script src="{{assets('')}}assets/js/custom.js"></script>
+<script src="{{asset('')}}assets/js/pages/forms-widgets.js"></script>
+<script src="{{asset('')}}assets/js/custom.js"></script>
 @endpush

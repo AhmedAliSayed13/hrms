@@ -157,7 +157,7 @@
 </div>
 </div>
 @push('scripts')
-<script src="{{assets('')}}assets/js/custom.js"></script>
-<script src="{{assets('')}}assets/js/function.js"></script>
+<script src="{{asset('')}}assets/js/custom.js"></script>
+<script src="{{asset('')}}assets/js/function.js"></script>
 @endpush
 @endsection
