@@ -1,7 +1,7 @@
 @extends('hrms.layouts.base')
 
 @section('content')
-        <!-- START CONTENT -->
+<!-- START CONTENT -->
 <div class="content">
 
     <header id="topbar" class="alt">
@@ -29,26 +29,27 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box box-success">
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <span class="panel-title hidden-xs"> Edit Team </span>
-                        </div>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <span class="panel-title hidden-xs"> Edit Team </span>
+                            </div>
 
-                        <div class="panel-body pn">
-                            <div class="table-responsive">
-                                <div class="panel-body p25 pb10">
+                            <div class="panel-body pn">
+                                <div class="table-responsive">
+                                    <div class="panel-body p25 pb10">
 
-                                    @if(Session::has('flash_message'))
+                                        @if(Session::has('flash_message'))
                                         <div class="alert alert-success">
                                             {{ Session::get('flash_message') }}
                                         </div>
-                                    @endif
-                                    {!! Form::open(['class' => 'form-horizontal']) !!}
+                                        @endif
+                                        {!! Form::open(['class' => 'form-horizontal']) !!}
                                         <div class="form-group">
                                             <label class="col-md-3 control-label"> Team Name </label>
                                             <div class="col-md-6">
                                                 <input type="text" placeholder="name of team..." name="team_name"
-                                                       value="{{$edit[0]->name}}" class="select2-single form-control" required>
+                                                    value="{{$edit[0]->name}}" class="select2-single form-control"
+                                                    required>
                                             </div>
                                         </div>
 
@@ -57,14 +58,15 @@
                                             <label class="col-md-3 control-label"> Select Team Manager</label>
                                             <div class="col-md-6">
                                                 <select class="selectpicker form-control" data-done-button="true"
-                                                        name="manager_id" required>
+                                                    name="manager_id" required>
                                                     <option value="" selected>Select One</option>
                                                     @foreach($managers as $manager)
-                                                        @if($edit[0]->manager->id == $manager->id)
-                                                            <option value="{{$manager->id}}" selected>{{$manager->name}}</option>
-                                                        @else
-                                                            <option value="{{$manager->id}}">{{$manager->name}}</option>
-                                                        @endif
+                                                    @if($edit[0]->manager->id == $manager->id)
+                                                    <option value="{{$manager->id}}" selected>{{$manager->name}}
+                                                    </option>
+                                                    @else
+                                                    <option value="{{$manager->id}}">{{$manager->name}}</option>
+                                                    @endif
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -76,14 +78,14 @@
                                             <label class="col-md-3 control-label"> Select Team Leader</label>
                                             <div class="col-md-6">
                                                 <select class="selectpicker form-control" data-done-button="true"
-                                                        name="leader_id" required>
+                                                    name="leader_id" required>
                                                     <option value="" selected>Select One</option>
                                                     @foreach($leaders as $leader)
-                                                        @if($edit[0]->leader->id == $leader->id)
-                                                            <option value="{{$leader->id}}" selected>{{$leader->name}}</option>
-                                                        @else
-                                                            <option value="{{$leader->id}}">{{$leader->name}}</option>
-                                                        @endif
+                                                    @if($edit[0]->leader->id == $leader->id)
+                                                    <option value="{{$leader->id}}" selected>{{$leader->name}}</option>
+                                                    @else
+                                                    <option value="{{$leader->id}}">{{$leader->name}}</option>
+                                                    @endif
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -93,14 +95,14 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label"> Select Team Members </label>
                                             <div class="col-md-6">
-                                                <select id="done" class="selectpicker form-control"
-                                                        multiple data-done-button="true" name="member_id[]" required>
+                                                <select id="done" class="selectpicker form-control" multiple
+                                                    data-done-button="true" name="member_id[]" required>
                                                     @foreach($emps as $emp)
-                                                        @if(in_array($emp->id,$team_member))
-                                                            <option value="{{$emp->id}}" selected>{{$emp->name}}</option>
-                                                        @else
-                                                            <option value="{{$emp->id}}">{{$emp->name}}</option>
-                                                        @endif
+                                                    @if(in_array($emp->id,$team_member))
+                                                    <option value="{{$emp->id}}" selected>{{$emp->name}}</option>
+                                                    @else
+                                                    <option value="{{$emp->id}}">{{$emp->name}}</option>
+                                                    @endif
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -111,16 +113,19 @@
                                             <label class="col-md-3 control-label"></label>
                                             <div class="col-md-2">
 
-                                                    <input type="submit" class="btn btn-bordered btn-info btn-block" value="Submit">
+                                                <input type="submit" class="btn btn-bordered btn-info btn-block"
+                                                    value="Submit">
                                             </div>
                                             <div class="col-md-2">
-                                                <a href="/edit-team/{id}" >
+                                                <a href="/edit-team/{id}">
 
-                                                    <input type="button" value="Reset" class="btn btn-bordered btn-success btn-block"></a>
+                                                    <input type="button" value="Reset"
+                                                        class="btn btn-bordered btn-success btn-block"></a>
                                             </div>
                                         </div>
                                         {!! Form::close() !!}
                                         {{--</form>--}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -128,12 +133,11 @@
                 </div>
             </div>
         </div>
-        </div>
 
     </section>
 
 </div>
 @endsection
 @push('scripts')
-    <script src="/assets/allcp/forms/js/bootstrap-select.js"></script>
+<script src="{{assets('')}}assets/allcp/forms/js/bootstrap-select.js"></script>
 @endpush

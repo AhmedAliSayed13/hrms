@@ -1,7 +1,7 @@
 @extends('hrms.layouts.base')
 
 @section('content')
-        <!-- START CONTENT -->
+<!-- START CONTENT -->
 <div class="content">
 
     <input type="hidden" value="{{csrf_token()}}" id="token">
@@ -30,49 +30,51 @@
     <!-- -------------- Content -------------- -->
     <section id="content" class="animated fadeIn">
         <div class="box box-success">
-        <div class="panel bg-gradient">
+            <div class="panel bg-gradient">
 
-            <!-- -------------- Column Center -------------- -->
-            <div class="chute chute-center ph45">
+                <!-- -------------- Column Center -------------- -->
+                <div class="chute chute-center ph45">
 
-                <!-- -------------- Calendar -------------- -->
-                {{--<div id="calendar" class="events-calendar"></div>--}}
-                <h2 class="text-muted" style="text-align:center"> SCHEDULE EVENTS
-                    <a id="compose-event-btn" href="#calendarManagment" data-effect="mfp-flipInY">
-                        <span class="fa fa-plus-square"></span>
-                    </a>
-                </h2>
+                    <!-- -------------- Calendar -------------- -->
+                    {{--<div id="calendar" class="events-calendar"></div>--}}
+                    <h2 class="text-muted" style="text-align:center"> SCHEDULE EVENTS
+                        <a id="compose-event-btn" href="#calendarManagment" data-effect="mfp-flipInY">
+                            <span class="fa fa-plus-square"></span>
+                        </a>
+                    </h2>
 
 
-                <div id="external-events" class="bg-dotted">
-                <div class="mt40">
-                    @foreach (array_chunk($events, 3, true) as $results)
-                        <table class="table">
-                            <tr>
-                                @foreach($results as $event)
+                    <div id="external-events" class="bg-dotted">
+                        <div class="mt40">
+                            @foreach (array_chunk($events, 3, true) as $results)
+                            <table class="table">
+                                <tr>
+                                    @foreach($results as $event)
                                     <td>
                                         <div class='fc-event fc-event-primary' data-event="primary">
                                             <div class="fc-event-icon">
                                                 <span class="fa fa-exclamation"></span>
                                             </div>
                                             <div class="fc-event-desc blink" id="blink">
-                                                <b>{{ \Carbon\Carbon::createFromTimestamp(strtotime($event->date))->diffForHumans()}} </b> {{$event->name}}
+                                                <b>{{
+                                                    \Carbon\Carbon::createFromTimestamp(strtotime($event->date))->diffForHumans()}}
+                                                </b> {{$event->name}}
                                             </div>
                                         </div>
                                     </td>
-                                @endforeach
-                            </tr>
-                        </table>
-                    @endforeach
-                  </div>
-            </div>
-            </div>
+                                    @endforeach
+                                </tr>
+                            </table>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
 
-        </aside>
-        <!-- -------------- /Column Left -------------- -->
+            </aside>
+            <!-- -------------- /Column Left -------------- -->
 
-</div>
+        </div>
     </section>
 
     <!-- -------------- /Content -------------- -->
@@ -83,9 +85,9 @@
 <div class="allcp-form theme-primary popup-basic popup-lg mfp-with-anim mfp-hide" id="calendarManagment">
     <div class="panel">
         <div class="panel-heading">
-        <span class="panel-title">
-          <i class="fa fa-pencil-square-o"></i>New Calendar Event
-        </span>
+            <span class="panel-title">
+                <i class="fa fa-pencil-square-o"></i>New Calendar Event
+            </span>
         </div>
 
         <form method="post" action="/" id="calendarManagmentForm">
@@ -109,13 +111,13 @@
                 <div class="section row">
                     <div class="col-xs-12">
                         <label class="field prepend-icon">
-                        <textarea class="gui-textarea" id="event_description"
-                                  placeholder="Event Description"></textarea>
+                            <textarea class="gui-textarea" id="event_description"
+                                placeholder="Event Description"></textarea>
                             <label for="comment" class="field-icon">
                                 <i class="fa fa-comments"></i>
                             </label>
                             <span class="input-footer hidden">
-                            <strong>Hint:</strong>Don't be negative or off topic! just be awesome...</span>
+                                <strong>Hint:</strong>Don't be negative or off topic! just be awesome...</span>
                         </label>
                     </div>
                 </div>
@@ -125,7 +127,7 @@
 
 
 
-               <!---------------------- Coordinator -------------------->
+                <!---------------------- Coordinator -------------------->
                 <div class="section row">
                     <div class="col-md-12">
                         <label for="firstname" class="field prepend-icon">
@@ -146,13 +148,13 @@
                 <div class="section row">
                     <div class="col-md-12">
                         <div class="input-group date" id="datetimepicker2">
-                                            <span class="input-group-addon cursor">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
+                            <span class="input-group-addon cursor">
+                                <i class="fa fa-calendar"></i>
+                            </span>
                             <input type="text" class="form-control" id="date_time">
                         </div>
                     </div>
-                    </div>
+                </div>
 
                 <!--------------------- /Date ------------------->
 
@@ -165,23 +167,23 @@
                                 <option value="">Event Attendees</option>
                                 @foreach($users as $user)
                                 <option value="{{$user->id}}">{{$user->name}}</option>
-                                    @endforeach
+                                @endforeach
                             </select>
                         </label>
                     </div>
                 </div>
                 <!-- -------------- /section -------------- -->
 
-               {{-- <div class="section row">
+                {{-- <div class="section row">
                     <div class="col-xs-12">
                         <label class="field prepend-icon">
-                        <textarea class="gui-textarea" id="event_description"
-                                  placeholder="Event Description"></textarea>
+                            <textarea class="gui-textarea" id="event_description"
+                                placeholder="Event Description"></textarea>
                             <label for="comment" class="field-icon">
                                 <i class="fa fa-comments"></i>
                             </label>
                             <span class="input-footer hidden">
-                            <strong>Hint:</strong>Don't be negative or off topic! just be awesome...</span>
+                                <strong>Hint:</strong>Don't be negative or off topic! just be awesome...</span>
                         </label>
                     </div>
                 </div>--}}
@@ -191,14 +193,13 @@
 
                 {{--<div class="section row hidden" id="status-section">
                     Working
-                <div class="progress mt10 mbn">
-                    <div class="progress-bar progress-bar-primary progress-bar-striped active mnw100"
-                         role="progressbar"
-                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                         style="width: 32%">
-                        <span class="sr-only">40% Complete (success)</span>
+                    <div class="progress mt10 mbn">
+                        <div class="progress-bar progress-bar-primary progress-bar-striped active mnw100"
+                            role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 32%">
+                            <span class="sr-only">40% Complete (success)</span>
+                        </div>
                     </div>
-                </div>
                 </div>--}}
 
                 <div class="section row hidden" id="message-section">
@@ -223,6 +224,6 @@
 </div>
 @endsection
 @push('scripts')
-    <script src="/assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{assets('')}}assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>
 
 @endpush

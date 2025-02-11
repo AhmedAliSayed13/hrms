@@ -1,7 +1,7 @@
 @extends('hrms.layouts.base')
 
 @section('content')
-        <!-- START CONTENT -->
+<!-- START CONTENT -->
 <div class="content">
 
     <header id="topbar" class="alt">
@@ -29,117 +29,122 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="box box-success">
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <span class="panel-title hidden-xs"> Apply for Leave</span>
-                        </div>
-                    <div class="text-center" id="show-leave-count"></div>
-                        <div class="panel-body pn">
-                            <div class="table-responsive">
-                                <div class="panel-body p25 pb10">
-                                    @if(session('message'))
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <span class="panel-title hidden-xs"> Apply for Leave</span>
+                            </div>
+                            <div class="text-center" id="show-leave-count"></div>
+                            <div class="panel-body pn">
+                                <div class="table-responsive">
+                                    <div class="panel-body p25 pb10">
+                                        @if(session('message'))
                                         {{session('message')}}
-                                    @endif
-                                    @if(Session::has('flash_message'))
+                                        @endif
+                                        @if(Session::has('flash_message'))
                                         <div class="alert alert-success">
                                             {{ session::get('flash_message') }}
                                         </div>
-                                    @endif
-                                    {!! Form::open(['class' => 'form-horizontal', 'method' => 'post']) !!}
+                                        @endif
+                                        {!! Form::open(['class' => 'form-horizontal', 'method' => 'post']) !!}
 
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label"> Leave Type </label>
-                                        <div class="col-md-10">
-                                            <input type="hidden" value="{!! csrf_token() !!}" id="token">
-                                            <input type="hidden" value="{{\Auth::user()->id}}" id="user_id">
-                                            <select class="select2-multiple form-control select-primary leave_type"
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label"> Leave Type </label>
+                                            <div class="col-md-10">
+                                                <input type="hidden" value="{!! csrf_token() !!}" id="token">
+                                                <input type="hidden" value="{{\Auth::user()->id}}" id="user_id">
+                                                <select class="select2-multiple form-control select-primary leave_type"
                                                     name="leave_type" required>
-                                                <option value="" selected>Select One</option>
-                                                @foreach($leaves as $leave)
+                                                    <option value="" selected>Select One</option>
+                                                    @foreach($leaves as $leave)
                                                     <option value="{{$leave->id}}">{{$leave->leave_type}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label for="date_from" class="col-md-2 control-label"> Date From </label>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar text-alert pr10"></i>
-                                                </div>
-                                                <input type="text" id="datepicker1" class="select2-single form-control"
-                                                       name="dateFrom" required>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
-                                        <label for="date_to" class="col-md-2 control-label"> Date To </label>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar text-alert pr10"></i>
+
+
+                                        <div class="form-group">
+                                            <label for="date_from" class="col-md-2 control-label"> Date From </label>
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar text-alert pr10"></i>
+                                                    </div>
+                                                    <input type="text" id="datepicker1"
+                                                        class="select2-single form-control" name="dateFrom" required>
                                                 </div>
-                                                <input type="text" id="datepicker4" class="select2-single form-control"
-                                                       name="dateTo" required>
                                             </div>
-
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label for="time_from" class=" col-md-2 control-label  "> Time From </label>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="imoon imoon-clock text-alert pr10"></i>
+                                            <label for="date_to" class="col-md-2 control-label"> Date To </label>
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar text-alert pr10"></i>
+                                                    </div>
+                                                    <input type="text" id="datepicker4"
+                                                        class="select2-single form-control" name="dateTo" required>
                                                 </div>
-                                                <input type="text" id="timepicker1" class="select2-single form-control" value="9:30"
-                                                       name="time_from" required>
-                                            </div>
-                                        </div>
-                                        <label for="time_to" class="col-md-2 control-label"> Time To </label>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="imoon imoon-clock text-alert pr10"></i>
-                                                </div>
-                                                <input type="text" id="timepicker4" class="select2-single form-control" value="18:00"
-                                                       name="time_to" required>
+
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="input002" class="col-md-2 control-label"> Days </label>
-                                        <div class="col-md-10">
-                                            <input id="total_days" name="number_of_days" value="" readonly="readonly"
-                                                   type="text" size="90" class="select2-single form-control"/>
+
+
+                                        <div class="form-group">
+                                            <label for="time_from" class=" col-md-2 control-label  "> Time From </label>
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="imoon imoon-clock text-alert pr10"></i>
+                                                    </div>
+                                                    <input type="text" id="timepicker1"
+                                                        class="select2-single form-control" value="9:30"
+                                                        name="time_from" required>
+                                                </div>
+                                            </div>
+                                            <label for="time_to" class="col-md-2 control-label"> Time To </label>
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="imoon imoon-clock text-alert pr10"></i>
+                                                    </div>
+                                                    <input type="text" id="timepicker4"
+                                                        class="select2-single form-control" value="18:00" name="time_to"
+                                                        required>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="input002" class="col-md-2 control-label"> Reason </label>
-                                        <div class="col-md-10">
-                                            <input type="text" id="textarea1" class="select2-single form-control"
-                                                   name="reason" required>
+                                        <div class="form-group">
+                                            <label for="input002" class="col-md-2 control-label"> Days </label>
+                                            <div class="col-md-10">
+                                                <input id="total_days" name="number_of_days" value=""
+                                                    readonly="readonly" type="text" size="90"
+                                                    class="select2-single form-control" />
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="input002" class="col-md-2 control-label"> Reason </label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="textarea1" class="select2-single form-control"
+                                                    name="reason" required>
+                                            </div>
+                                        </div>
 
 
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label"></label>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label"></label>
 
-                                        <div class="col-md-2">
+                                            <div class="col-md-2">
 
                                                 <input type="submit" class="btn btn-bordered btn-info btn-block"
-                                                             value="Submit">
+                                                    value="Submit">
+                                            </div>
+                                            <div class="col-md-2"><a href="/apply-leave">
+                                                    <input type="button" class="btn btn-bordered btn-success btn-block"
+                                                        value="Reset"></a></div>
+
                                         </div>
-                                        <div class="col-md-2"><a href="/apply-leave" >
-                                                <input type="button" class="btn btn-bordered btn-success btn-block" value="Reset"></a></div>
 
+                                        {!! Form::close() !!}
                                     </div>
-
-                                    {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>
@@ -147,13 +152,12 @@
                 </div>
             </div>
         </div>
-      </div>
     </section>
 
 </div>
 </div>
-    @push('scripts')
-        <script src="/assets/js/custom.js"></script>
-        <script src="/assets/js/function.js"></script>
-    @endpush
+@push('scripts')
+<script src="{{assets('')}}assets/js/custom.js"></script>
+<script src="{{assets('')}}assets/js/function.js"></script>
+@endpush
 @endsection

@@ -12,38 +12,38 @@
     <!-- -------------- Fonts -------------- -->
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic' rel='stylesheet'
-          type='text/css'>
+        type='text/css'>
 
 
     <!-- -------------- Icomoon -------------- -->
-    <link rel="stylesheet" type="text/css" href="/assets/fonts/icomoon/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/fonts/icomoon/icomoon.css">
 
     <!-- -------------- FullCalendar -------------- -->
-    <link rel="stylesheet" type="text/css" href="/assets/js/plugins/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/js/plugins/magnific/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/js/plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/js/plugins/magnific/magnific-popup.css">
 
     <!-- -------------- Plugins -------------- -->
-    <link rel="stylesheet" type="text/css" href="/assets/js/plugins/c3charts/c3.min.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/js/plugins/c3charts/c3.min.css">
 
     <!-- -------------- CSS - theme -------------- -->
-    <link rel="stylesheet" type="text/css" href="/assets/skin/default_skin/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/skin/default_skin/css/theme.css">
 
 
     <!-- -------------- CSS - allcp forms -------------- -->
-    <link rel="stylesheet" type="text/css" href="/assets/allcp/forms/css/forms.css">
-    <link rel="stylesheet" type="text/css" href="/assets/allcp/forms/css/widget.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/allcp/forms/css/forms.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/allcp/forms/css/widget.css">
 
-    <link rel="stylesheet" type="text/css" href="assets/js/plugins/select2/css/core.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/js/plugins/select2/css/core.css">
     <!-- -------------- Favicon -------------- -->
-    <link rel="shortcut icon" href="/assets/img/favicon.png">
+    <link rel="shortcut icon" href="{{assets('')}}assets/img/favicon.png">
 
     <!--  Custom css -->
-    <link rel="stylesheet" type="text/css" href="/assets/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/custom.css">
 
     <!-- Sweet alert -->
-    <link rel="stylesheet" type="text/css" href="/assets/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="{{assets('')}}assets/sweetalert.css">
 
-@stack('styles')
+    @stack('styles')
 
     <!-- -------------- IE8 HTML5 support  -------------- -->
     <!--[if lt IE 9]>
@@ -53,15 +53,15 @@
 
     <style type="text/css">
         .blink {
-            color:mediumblue;
+            color: mediumblue;
         }
 
         .blink_second {
-            color:red;
+            color: red;
         }
 
         .blink_third {
-            color:yellow;
+            color: yellow;
         }
     </style>
 
@@ -69,660 +69,670 @@
 
 <body class="dashboard-page">
 
-<!-- -------------- Customizer -------------- -->
-<div id="customizer" class="hidden-xs">
-    <div class="panel">
+    <!-- -------------- Customizer -------------- -->
+    <div id="customizer" class="hidden-xs">
+        <div class="panel">
 
-        <div class="panel-body pn">
-            <ul class="nav nav-list nav-list-sm" role="tablist">
-                <li class="active">
-                    <a href="customizer-header" role="tab" data-toggle="tab">Navbar</a>
-                </li>
-                <li>
-                    <a href="customizer-sidebar" role="tab" data-toggle="tab">Sidebar</a>
-                </li>
-                <li>
-                    <a href="customizer-settings" role="tab" data-toggle="tab">Misc</a>
-                </li>
-            </ul>
-            <div class="tab-content p20 ptn pb15">
-                <div role="tabpanel" class="tab-pane active" id="customizer-header">
-                    <form id="customizer-header-skin">
-                        <h6 class="mv20">Header Skins</h6>
+            <div class="panel-body pn">
+                <ul class="nav nav-list nav-list-sm" role="tablist">
+                    <li class="active">
+                        <a href="customizer-header" role="tab" data-toggle="tab">Navbar</a>
+                    </li>
+                    <li>
+                        <a href="customizer-sidebar" role="tab" data-toggle="tab">Sidebar</a>
+                    </li>
+                    <li>
+                        <a href="customizer-settings" role="tab" data-toggle="tab">Misc</a>
+                    </li>
+                </ul>
+                <div class="tab-content p20 ptn pb15">
+                    <div role="tabpanel" class="tab-pane active" id="customizer-header">
+                        <form id="customizer-header-skin">
+                            <h6 class="mv20">Header Skins</h6>
 
-                        <div class="customizer-sample">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox-custom fill checkbox-dark mb10">
-                                            <input type="radio" name="headerSkin" id="headerSkin5" checked
-                                                   value="bg-dark">
-                                            <label for="headerSkin5">Dark</label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="checkbox-custom fill checkbox-warning mb10">
-                                            <input type="radio" name="headerSkin" id="headerSkin2" value="bg-warning">
-                                            <label for="headerSkin2">Warning</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox-custom fill checkbox-danger mb10">
-                                            <input type="radio" name="headerSkin" id="headerSkin3" value="bg-danger">
-                                            <label for="headerSkin3">Danger</label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="checkbox-custom fill checkbox-success mb10">
-                                            <input type="radio" name="headerSkin" id="headerSkin4" value="bg-success">
-                                            <label for="headerSkin4">Success</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox-custom fill checkbox-primary mb10">
-                                            <input type="radio" name="headerSkin" id="headerSkin6" value="bg-primary">
-                                            <label for="headerSkin6">Primary</label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="checkbox-custom fill checkbox-info mb10">
-                                            <input type="radio" name="headerSkin" id="headerSkin7" value="bg-info">
-                                            <label for="headerSkin7">Info</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox-custom fill checkbox-alert mb10">
-                                            <input type="radio" name="headerSkin" id="headerSkin8" value="bg-alert">
-                                            <label for="headerSkin8">Alert</label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="checkbox-custom fill checkbox-system mb10">
-                                            <input type="radio" name="headerSkin" id="headerSkin9" value="bg-system">
-                                            <label for="headerSkin9">System</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
+                            <div class="customizer-sample">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox-custom fill checkbox-dark mb10">
+                                                <input type="radio" name="headerSkin" id="headerSkin5" checked
+                                                    value="bg-dark">
+                                                <label for="headerSkin5">Dark</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="checkbox-custom fill checkbox-warning mb10">
+                                                <input type="radio" name="headerSkin" id="headerSkin2"
+                                                    value="bg-warning">
+                                                <label for="headerSkin2">Warning</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox-custom fill checkbox-danger mb10">
+                                                <input type="radio" name="headerSkin" id="headerSkin3"
+                                                    value="bg-danger">
+                                                <label for="headerSkin3">Danger</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="checkbox-custom fill checkbox-success mb10">
+                                                <input type="radio" name="headerSkin" id="headerSkin4"
+                                                    value="bg-success">
+                                                <label for="headerSkin4">Success</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox-custom fill checkbox-primary mb10">
+                                                <input type="radio" name="headerSkin" id="headerSkin6"
+                                                    value="bg-primary">
+                                                <label for="headerSkin6">Primary</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="checkbox-custom fill checkbox-info mb10">
+                                                <input type="radio" name="headerSkin" id="headerSkin7" value="bg-info">
+                                                <label for="headerSkin7">Info</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox-custom fill checkbox-alert mb10">
+                                                <input type="radio" name="headerSkin" id="headerSkin8" value="bg-alert">
+                                                <label for="headerSkin8">Alert</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="checkbox-custom fill checkbox-system mb10">
+                                                <input type="radio" name="headerSkin" id="headerSkin9"
+                                                    value="bg-system">
+                                                <label for="headerSkin9">System</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
 
-                            <div class="checkbox-custom checkbox-disabled fill mb10">
-                                <input type="radio" name="headerSkin" id="headerSkin1" value="bgc-light">
-                                <label for="headerSkin1">Light</label>
+                                <div class="checkbox-custom checkbox-disabled fill mb10">
+                                    <input type="radio" name="headerSkin" id="headerSkin1" value="bgc-light">
+                                    <label for="headerSkin1">Light</label>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <form id="customizer-footer-skin">
-                        <h6 class="mv20">Footer Skins</h6>
+                        </form>
+                        <form id="customizer-footer-skin">
+                            <h6 class="mv20">Footer Skins</h6>
 
-                        <div class="customizer-sample">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox-custom fill checkbox-dark mb10">
-                                            <input type="radio" name="footerSkin" id="footerSkin1" checked value="">
-                                            <label for="footerSkin1">Dark</label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="checkbox-custom checkbox-disabled fill mb10">
-                                            <input type="radio" name="footerSkin" id="footerSkin2" value="footer-light">
-                                            <label for="footerSkin2">Light</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </form>
+                            <div class="customizer-sample">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox-custom fill checkbox-dark mb10">
+                                                <input type="radio" name="footerSkin" id="footerSkin1" checked value="">
+                                                <label for="footerSkin1">Dark</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="checkbox-custom checkbox-disabled fill mb10">
+                                                <input type="radio" name="footerSkin" id="footerSkin2"
+                                                    value="footer-light">
+                                                <label for="footerSkin2">Light</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="customizer-sidebar">
+                        <form id="customizer-sidebar-skin">
+                            <h6 class="mv20">Sidebar Skins</h6>
+
+                            <div class="customizer-sample">
+                                <div class="checkbox-custom fill checkbox-dark mb10">
+                                    <input type="radio" name="sidebarSkin" checked id="sidebarSkin2" value="">
+                                    <label for="sidebarSkin2">Dark</label>
+                                </div>
+                                <div class="checkbox-custom fill checkbox-disabled mb10">
+                                    <input type="radio" name="sidebarSkin" id="sidebarSkin1" value="sidebar-light">
+                                    <label for="sidebarSkin1">Light</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="customizer-settings">
+                        <form id="customizer-settings-misc">
+                            <h6 class="mv20 mtn">Layout Options</h6>
+
+                            <div class="form-group">
+                                <div class="checkbox-custom fill mb10">
+                                    <input type="checkbox" checked="" id="header-option">
+                                    <label for="header-option">Fixed Header</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-custom fill mb10">
+                                    <input type="checkbox" checked="" id="sidebar-option">
+                                    <label for="sidebar-option">Fixed Sidebar</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-custom fill mb10">
+                                    <input type="checkbox" id="breadcrumb-option">
+                                    <label for="breadcrumb-option">Fixed Breadcrumbs</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-custom fill mb10">
+                                    <input type="checkbox" id="breadcrumb-hidden">
+                                    <label for="breadcrumb-hidden">Hide Breadcrumbs</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="customizer-sidebar">
-                    <form id="customizer-sidebar-skin">
-                        <h6 class="mv20">Sidebar Skins</h6>
-
-                        <div class="customizer-sample">
-                            <div class="checkbox-custom fill checkbox-dark mb10">
-                                <input type="radio" name="sidebarSkin" checked id="sidebarSkin2" value="">
-                                <label for="sidebarSkin2">Dark</label>
-                            </div>
-                            <div class="checkbox-custom fill checkbox-disabled mb10">
-                                <input type="radio" name="sidebarSkin" id="sidebarSkin1" value="sidebar-light">
-                                <label for="sidebarSkin1">Light</label>
-                            </div>
-                        </div>
-                    </form>
+                <div class="form-group mn pb35 pt25 text-center">
+                    <a href="#" id="clearAll" class="btn btn-primary btn-bordered btn-sm">Clear All</a>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="customizer-settings">
-                    <form id="customizer-settings-misc">
-                        <h6 class="mv20 mtn">Layout Options</h6>
-
-                        <div class="form-group">
-                            <div class="checkbox-custom fill mb10">
-                                <input type="checkbox" checked="" id="header-option">
-                                <label for="header-option">Fixed Header</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox-custom fill mb10">
-                                <input type="checkbox" checked="" id="sidebar-option">
-                                <label for="sidebar-option">Fixed Sidebar</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox-custom fill mb10">
-                                <input type="checkbox" id="breadcrumb-option">
-                                <label for="breadcrumb-option">Fixed Breadcrumbs</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox-custom fill mb10">
-                                <input type="checkbox" id="breadcrumb-hidden">
-                                <label for="breadcrumb-hidden">Hide Breadcrumbs</label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="form-group mn pb35 pt25 text-center">
-                <a href="#" id="clearAll" class="btn btn-primary btn-bordered btn-sm">Clear All</a>
             </div>
         </div>
     </div>
-</div>
-<!-- -------------- /Customizer -------------- -->
+    <!-- -------------- /Customizer -------------- -->
 
-<!-- -------------- Body Wrap  -------------- -->
-<div id="main">
+    <!-- -------------- Body Wrap  -------------- -->
+    <div id="main">
 
-    <!-- -------------- Header  -------------- -->
-    @include('hrms.layouts.header')
-    <!-- -------------- /Header  -------------- -->
+        <!-- -------------- Header  -------------- -->
+        @include('hrms.layouts.header')
+        <!-- -------------- /Header  -------------- -->
 
-    <!-- -------------- Sidebar  -------------- -->
-    <aside id="sidebar_left" class="nano nano-light affix">
+        <!-- -------------- Sidebar  -------------- -->
+        <aside id="sidebar_left" class="nano nano-light affix">
 
-        <!-- -------------- Sidebar Left Wrapper  -------------- -->
-        <div class="sidebar-left-content nano-content">
+            <!-- -------------- Sidebar Left Wrapper  -------------- -->
+            <div class="sidebar-left-content nano-content">
 
-            <!-- -------------- Sidebar Header -------------- -->
-            <header class="sidebar-header">
+                <!-- -------------- Sidebar Header -------------- -->
+                <header class="sidebar-header">
 
-                <!-- -------------- Sidebar - Author -------------- -->
-            @include('hrms.layouts.sidebar')
+                    <!-- -------------- Sidebar - Author -------------- -->
+                    @include('hrms.layouts.sidebar')
 
-            <!-- -------------- Sidebar Hide Button -------------- -->
-            <div class="sidebar-toggler">
-                <a href="#">
-                    <span class="fa fa-arrow-circle-o-left"></span>
-                </a>
+                    <!-- -------------- Sidebar Hide Button -------------- -->
+                    <div class="sidebar-toggler">
+                        <a href="#">
+                            <span class="fa fa-arrow-circle-o-left"></span>
+                        </a>
+                    </div>
+                    <!-- -------------- /Sidebar Hide Button -------------- -->
+
             </div>
-            <!-- -------------- /Sidebar Hide Button -------------- -->
+            <!-- -------------- /Sidebar Left Wrapper  -------------- -->
 
-        </div>
-        <!-- -------------- /Sidebar Left Wrapper  -------------- -->
+        </aside>
 
-    </aside>
+        <!-- -------------- /Sidebar -------------- -->
 
-    <!-- -------------- /Sidebar -------------- -->
+        <!-- -------------- Main Wrapper -------------- -->
+        <section id="content_wrapper">
 
-    <!-- -------------- Main Wrapper -------------- -->
-    <section id="content_wrapper">
-
-        <!-- -------------- Topbar Menu Wrapper -------------- -->
-        <div id="topbar-dropmenu-wrapper">
-            <div class="topbar-menu row">
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-danger">
-                        <span class="fa fa-music"></span>
-                        <span class="service-title">Audio</span>
-                    </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-success">
-                        <span class="fa fa-picture-o"></span>
-                        <span class="service-title">Images</span>
-                    </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-primary">
-                        <span class="fa fa-video-camera"></span>
-                        <span class="service-title">Videos</span>
-                    </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-alert">
-                        <span class="fa fa-envelope"></span>
-                        <span class="service-title">Messages</span>
-                    </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-system">
-                        <span class="fa fa-cog"></span>
-                        <span class="service-title">Settings</span>
-                    </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-dark">
-                        <span class="fa fa-user"></span>
-                        <span class="service-title">Users</span>
-                    </a>
+            <!-- -------------- Topbar Menu Wrapper -------------- -->
+            <div id="topbar-dropmenu-wrapper">
+                <div class="topbar-menu row">
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="service-box bg-danger">
+                            <span class="fa fa-music"></span>
+                            <span class="service-title">Audio</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="service-box bg-success">
+                            <span class="fa fa-picture-o"></span>
+                            <span class="service-title">Images</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="service-box bg-primary">
+                            <span class="fa fa-video-camera"></span>
+                            <span class="service-title">Videos</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="service-box bg-alert">
+                            <span class="fa fa-envelope"></span>
+                            <span class="service-title">Messages</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="service-box bg-system">
+                            <span class="fa fa-cog"></span>
+                            <span class="service-title">Settings</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="service-box bg-dark">
+                            <span class="fa fa-user"></span>
+                            <span class="service-title">Users</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- -------------- /Topbar Menu Wrapper -------------- -->
+            <!-- -------------- /Topbar Menu Wrapper -------------- -->
 
-        <!-- YIELD CONTENT -->
+            <!-- YIELD CONTENT -->
 
-        @yield('content')
+            @yield('content')
 
-        <!-- /YIELD CONTENT -->
+            <!-- /YIELD CONTENT -->
 
-        <!-- -------------- Content -------------- -->
-        <section id="content" class="table-layout animated fadeIn">
+            <!-- -------------- Content -------------- -->
+            <section id="content" class="table-layout animated fadeIn">
 
-            <!-- -------------- Column Right -------------- -->
-            <aside class="chute chute-right chute270 pn hidden" data-chute-height="match">
+                <!-- -------------- Column Right -------------- -->
+                <aside class="chute chute-right chute270 pn hidden" data-chute-height="match">
 
-                <!-- -------------- Activity Timeline -------------- -->
-                <ol class="timeline-list pl5 mt5">
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-dark light">
-                            <span class="fa fa-tags"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Genry</b> Added a new item to his store:
-                            <a href="#">Ipod</a>
-                        </div>
-                        <div class="timeline-date">1:25am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-dark light">
-                            <span class="fa fa-tags"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Lion</b> Added a new item to his store:
-                            <a href="#">Notebook</a>
-                        </div>
-                        <div class="timeline-date">3:05am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-success">
-                            <span class="fa fa-usd"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Admin</b> created a new invoice for:
-                            <a href="#">Software</a>
-                        </div>
-                        <div class="timeline-date">4:15am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-warning">
-                            <span class="fa fa-pencil"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Laura</b> edited her work experience
-                        </div>
-                        <div class="timeline-date">5:25am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-success">
-                            <span class="fa fa-usd"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Admin</b> created a new invoice for:
-                            <a href="#">Apple Inc.</a>
-                        </div>
-                        <div class="timeline-date">7:45am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-dark light">
-                            <span class="fa fa-tags"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Genry</b> Added a new item to his store:
-                            <a href="#">Ipod</a>
-                        </div>
-                        <div class="timeline-date">8:25am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-dark light">
-                            <span class="fa fa-tags"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Lion</b> Added a new item to his store:
-                            <a href="#">Watch</a>
-                        </div>
-                        <div class="timeline-date">9:35am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-system">
-                            <span class="fa fa-fire"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Admin</b> created a new invoice for:
-                            <a href="#">Software</a>
-                        </div>
-                        <div class="timeline-date">4:15am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-warning">
-                            <span class="fa fa-pencil"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Laura</b> edited her work experience
-                        </div>
-                        <div class="timeline-date">5:25am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-success">
-                            <span class="fa fa-usd"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Admin</b> created a new invoice for:
-                            <a href="#">Software</a>
-                        </div>
-                        <div class="timeline-date">4:15am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-warning">
-                            <span class="fa fa-pencil"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Laura</b> edited her work experience
-                        </div>
-                        <div class="timeline-date">5:25am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-success">
-                            <span class="fa fa-usd"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Admin</b> created a new invoice for:
-                            <a href="#">Apple Inc.</a>
-                        </div>
-                        <div class="timeline-date">7:45am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-dark light">
-                            <span class="fa fa-tags"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Genry</b> Added a new item to his store:
-                            <a href="#">Ipod</a>
-                        </div>
-                        <div class="timeline-date">8:25am</div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-icon bg-dark light">
-                            <span class="fa fa-tags"></span>
-                        </div>
-                        <div class="timeline-desc">
-                            <b>Lion</b> Added a new item to his store:
-                            <a href="#">Watch</a>
-                        </div>
-                        <div class="timeline-date">9:35am</div>
-                    </li>
-                </ol>
+                    <!-- -------------- Activity Timeline -------------- -->
+                    <ol class="timeline-list pl5 mt5">
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-dark light">
+                                <span class="fa fa-tags"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Genry</b> Added a new item to his store:
+                                <a href="#">Ipod</a>
+                            </div>
+                            <div class="timeline-date">1:25am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-dark light">
+                                <span class="fa fa-tags"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Lion</b> Added a new item to his store:
+                                <a href="#">Notebook</a>
+                            </div>
+                            <div class="timeline-date">3:05am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-success">
+                                <span class="fa fa-usd"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Admin</b> created a new invoice for:
+                                <a href="#">Software</a>
+                            </div>
+                            <div class="timeline-date">4:15am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-warning">
+                                <span class="fa fa-pencil"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Laura</b> edited her work experience
+                            </div>
+                            <div class="timeline-date">5:25am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-success">
+                                <span class="fa fa-usd"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Admin</b> created a new invoice for:
+                                <a href="#">Apple Inc.</a>
+                            </div>
+                            <div class="timeline-date">7:45am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-dark light">
+                                <span class="fa fa-tags"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Genry</b> Added a new item to his store:
+                                <a href="#">Ipod</a>
+                            </div>
+                            <div class="timeline-date">8:25am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-dark light">
+                                <span class="fa fa-tags"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Lion</b> Added a new item to his store:
+                                <a href="#">Watch</a>
+                            </div>
+                            <div class="timeline-date">9:35am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-system">
+                                <span class="fa fa-fire"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Admin</b> created a new invoice for:
+                                <a href="#">Software</a>
+                            </div>
+                            <div class="timeline-date">4:15am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-warning">
+                                <span class="fa fa-pencil"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Laura</b> edited her work experience
+                            </div>
+                            <div class="timeline-date">5:25am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-success">
+                                <span class="fa fa-usd"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Admin</b> created a new invoice for:
+                                <a href="#">Software</a>
+                            </div>
+                            <div class="timeline-date">4:15am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-warning">
+                                <span class="fa fa-pencil"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Laura</b> edited her work experience
+                            </div>
+                            <div class="timeline-date">5:25am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-success">
+                                <span class="fa fa-usd"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Admin</b> created a new invoice for:
+                                <a href="#">Apple Inc.</a>
+                            </div>
+                            <div class="timeline-date">7:45am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-dark light">
+                                <span class="fa fa-tags"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Genry</b> Added a new item to his store:
+                                <a href="#">Ipod</a>
+                            </div>
+                            <div class="timeline-date">8:25am</div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon bg-dark light">
+                                <span class="fa fa-tags"></span>
+                            </div>
+                            <div class="timeline-desc">
+                                <b>Lion</b> Added a new item to his store:
+                                <a href="#">Watch</a>
+                            </div>
+                            <div class="timeline-date">9:35am</div>
+                        </li>
+                    </ol>
 
-            </aside>
-            <!-- -------------- /Column Right -------------- -->
+                </aside>
+                <!-- -------------- /Column Right -------------- -->
+
+            </section>
+            <!-- -------------- /Content -------------- -->
+
+            @if(\Route::getFacadeRoot()->current()->uri() == 'dashboard' || \Route::getFacadeRoot()->current()->uri() ==
+            'welcome' || \Route::getFacadeRoot()->current()->uri() == 'change-password' ||
+            \Route::getFacadeRoot()->current()->uri() == 'not-found' )
+            <!-- -------------- Page Footer -------------- -->
+            <footer id="content-footer" class="affix">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="footer-legal">KANAK © 2016 All rights reserved. By <a
+                                href="http://www.kanakmanjari.com/" target="_blank">Kanak Manjari</a></span>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <span class="footer-meta"></span>
+                        <a href="#content" class="footer-return-top">
+                            <span class="fa fa-angle-up"></span>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+            <!-- -------------- /Page Footer -------------- -->
+            @endif
 
         </section>
-        <!-- -------------- /Content -------------- -->
+        <!-- -------------- /Main Wrapper -------------- -->
 
-        @if(\Route::getFacadeRoot()->current()->uri() == 'dashboard' || \Route::getFacadeRoot()->current()->uri() == 'welcome' || \Route::getFacadeRoot()->current()->uri() == 'change-password' ||
-        \Route::getFacadeRoot()->current()->uri() == 'not-found' )
-        <!-- -------------- Page Footer -------------- -->
-        <footer id="content-footer" class="affix">
-            <div class="row">
-                <div class="col-md-6">
-                    <span class="footer-legal">KANAK © 2016 All rights reserved. By <a
-                                href="http://www.kanakmanjari.com/" target="_blank">Kanak Manjari</a></span>
-                </div>
-                <div class="col-md-6 text-right">
-                    <span class="footer-meta"></span>
-                    <a href="#content" class="footer-return-top">
-                        <span class="fa fa-angle-up"></span>
-                    </a>
+        <!-- -------------- Sidebar Right -------------- -->
+        <aside id="sidebar_right" class="nano affix">
+
+            <!-- -------------- Sidebar Right Content -------------- -->
+            <div class="sidebar-right-wrapper nano-content">
+
+                <div class="sidebar-block br-n p15">
+
+                    <h6 class="title-divider text-muted mb20"> Visitors Stats
+                        <span class="pull-right"> 2015
+                            <i class="fa fa-caret-down ml5"></i>
+                        </span>
+                    </h6>
+
+                    <div class="progress mh5">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="34"
+                            aria-valuemin="0" aria-valuemax="100" style="width: 34%">
+                            <span class="fs11">New visitors</span>
+                        </div>
+                    </div>
+                    <div class="progress mh5">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="66"
+                            aria-valuemin="0" aria-valuemax="100" style="width: 66%">
+                            <span class="fs11 text-left">Returnig visitors</span>
+                        </div>
+                    </div>
+                    <div class="progress mh5">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45"
+                            aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                            <span class="fs11 text-left">Orders</span>
+                        </div>
+                    </div>
+                    h
+                    <h6 class="title-divider text-muted mt30 mb10">New visitors</h6>
+
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <h3 class="text-primary mn pl5">350</h3>
+                        </div>
+                        <div class="col-xs-7 text-right">
+                            <h3 class="text-warning mn">
+                                <i class="fa fa-caret-down"></i> 15.7%
+                            </h3>
+                        </div>
+                    </div>
+
+                    <h6 class="title-divider text-muted mt25 mb10">Returnig visitors</h6>
+
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <h3 class="text-primary mn pl5">660</h3>
+                        </div>
+                        <div class="col-xs-7 text-right">
+                            <h3 class="text-success-dark mn">
+                                <i class="fa fa-caret-up"></i> 20.2%
+                            </h3>
+                        </div>
+                    </div>
+
+                    <h6 class="title-divider text-muted mt25 mb10">Orders</h6>
+
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <h3 class="text-primary mn pl5">153</h3>
+                        </div>
+                        <div class="col-xs-7 text-right">
+                            <h3 class="text-success mn">
+                                <i class="fa fa-caret-up"></i> 5.3%
+                            </h3>
+                        </div>
+                    </div>
+
+                    <h6 class="title-divider text-muted mt40 mb20"> Site Statistics
+                        <span class="pull-right text-primary fw600">Today</span>
+                    </h6>
                 </div>
             </div>
-        </footer>
-        <!-- -------------- /Page Footer -------------- -->
-        @endif
+        </aside>
+        <!-- -------------- /Sidebar Right -------------- -->
 
-    </section>
-    <!-- -------------- /Main Wrapper -------------- -->
-
-    <!-- -------------- Sidebar Right -------------- -->
-    <aside id="sidebar_right" class="nano affix">
-
-        <!-- -------------- Sidebar Right Content -------------- -->
-        <div class="sidebar-right-wrapper nano-content">
-
-            <div class="sidebar-block br-n p15">
-
-                <h6 class="title-divider text-muted mb20"> Visitors Stats
-                <span class="pull-right"> 2015
-                  <i class="fa fa-caret-down ml5"></i>
-                </span>
-                </h6>
-
-                <div class="progress mh5">
-                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="34"
-                         aria-valuemin="0"
-                         aria-valuemax="100" style="width: 34%">
-                        <span class="fs11">New visitors</span>
-                    </div>
-                </div>
-                <div class="progress mh5">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="66"
-                         aria-valuemin="0"
-                         aria-valuemax="100" style="width: 66%">
-                        <span class="fs11 text-left">Returnig visitors</span>
-                    </div>
-                </div>
-                <div class="progress mh5">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45"
-                         aria-valuemin="0"
-                         aria-valuemax="100" style="width: 45%">
-                        <span class="fs11 text-left">Orders</span>
-                    </div>
-                </div>
-h
-                <h6 class="title-divider text-muted mt30 mb10">New visitors</h6>
-
-                <div class="row">
-                    <div class="col-xs-5">
-                        <h3 class="text-primary mn pl5">350</h3>
-                    </div>
-                    <div class="col-xs-7 text-right">
-                        <h3 class="text-warning mn">
-                            <i class="fa fa-caret-down"></i> 15.7% </h3>
-                    </div>
-                </div>
-
-                <h6 class="title-divider text-muted mt25 mb10">Returnig visitors</h6>
-
-                <div class="row">
-                    <div class="col-xs-5">
-                        <h3 class="text-primary mn pl5">660</h3>
-                    </div>
-                    <div class="col-xs-7 text-right">
-                        <h3 class="text-success-dark mn">
-                            <i class="fa fa-caret-up"></i> 20.2% </h3>
-                    </div>
-                </div>
-
-                <h6 class="title-divider text-muted mt25 mb10">Orders</h6>
-
-                <div class="row">
-                    <div class="col-xs-5">
-                        <h3 class="text-primary mn pl5">153</h3>
-                    </div>
-                    <div class="col-xs-7 text-right">
-                        <h3 class="text-success mn">
-                            <i class="fa fa-caret-up"></i> 5.3% </h3>
-                    </div>
-                </div>
-
-                <h6 class="title-divider text-muted mt40 mb20"> Site Statistics
-                    <span class="pull-right text-primary fw600">Today</span>
-                </h6>
-            </div>
-        </div>
-    </aside>
-    <!-- -------------- /Sidebar Right -------------- -->
-
-</div>
-<!-- -------------- /Body Wrap  -------------- -->
+    </div>
+    <!-- -------------- /Body Wrap  -------------- -->
 
 
 
 
 
-<!-- -------------- Scripts -------------- -->
+    <!-- -------------- Scripts -------------- -->
 
-<!-- -------------- jQuery -------------- -->
-<script src="/assets/js/jquery/jquery-1.11.3.min.js"></script>
-{{--<script src="/assets/js/jquery/jquery-2.2.4.min.js"></script>--}}
-<script src="/assets/js/jquery/jquery_ui/jquery-ui.min.js"></script>
+    <!-- -------------- jQuery -------------- -->
+    <script src="{{assets('')}}assets/js/jquery/jquery-1.11.3.min.js"></script>
+    {{--<script src="{{assets('')}}assets/js/jquery/jquery-2.2.4.min.js"></script>--}}
+    <script src="{{assets('')}}assets/js/jquery/jquery_ui/jquery-ui.min.js"></script>
 
-<!-- -------------- HighCharts Plugin -------------- -->
-<script src="/assets/js/plugins/highcharts/highcharts.js"></script>
-<script src="/assets/js/plugins/c3charts/d3.min.js"></script>
-<script src="/assets/js/plugins/c3charts/c3.min.js"></script>
+    <!-- -------------- HighCharts Plugin -------------- -->
+    <script src="{{assets('')}}assets/js/plugins/highcharts/highcharts.js"></script>
+    <script src="{{assets('')}}assets/js/plugins/c3charts/d3.min.js"></script>
+    <script src="{{assets('')}}assets/js/plugins/c3charts/c3.min.js"></script>
 
-<!-- -------------- Simple Circles Plugin -------------- -->
-<script src="/assets/js/plugins/circles/circles.js"></script>
+    <!-- -------------- Simple Circles Plugin -------------- -->
+    <script src="{{assets('')}}assets/js/plugins/circles/circles.js"></script>
 
-<!-- -------------- Maps JSs -------------- -->
-<script src="/assets/js/plugins/jvectormap/jquery.jvectormap.min.js"></script>
-<script src="/assets/js/plugins/jvectormap/assets/jquery-jvectormap-us-lcc-en.js"></script>
+    <!-- -------------- Maps JSs -------------- -->
+    <script src="{{assets('')}}assets/js/plugins/jvectormap/jquery.jvectormap.min.js"></script>
+    <script src="{{assets('')}}assets/js/plugins/jvectormap{{assets('')}}assets/jquery-jvectormap-us-lcc-en.js">
+    </script>
 
-<!-- -------------- FullCalendar Plugin -------------- -->
-<script src="/assets/js/plugins/fullcalendar/lib/moment.min.js"></script>
-<script src="/assets/js/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <!-- -------------- FullCalendar Plugin -------------- -->
+    <script src="{{assets('')}}assets/js/plugins/fullcalendar/lib/moment.min.js"></script>
+    <script src="{{assets('')}}assets/js/plugins/fullcalendar/fullcalendar.min.js"></script>
 
-<!-- -------------- Date/Month - Pickers -------------- -->
-<script src="/assets/allcp/forms/js/jquery-ui-monthpicker.min.js"></script>
-<script src="/assets/allcp/forms/js/jquery-ui-datepicker.min.js"></script>
+    <!-- -------------- Date/Month - Pickers -------------- -->
+    <script src="{{assets('')}}assets/allcp/forms/js/jquery-ui-monthpicker.min.js"></script>
+    <script src="{{assets('')}}assets/allcp/forms/js/jquery-ui-datepicker.min.js"></script>
 
-<!-- -------------- Magnific Popup Plugin -------------- -->
-<script src="/assets/js/plugins/magnific/jquery.magnific-popup.js"></script>
+    <!-- -------------- Magnific Popup Plugin -------------- -->
+    <script src="{{assets('')}}assets/js/plugins/magnific/jquery.magnific-popup.js"></script>
 
-<!-- -------------- Theme Scripts -------------- -->
-<script src="/assets/js/utility/utility.js"></script>
-<script src="/assets/js/demo/demo.js"></script>
-<script src="/assets/js/main.js"></script>
+    <!-- -------------- Theme Scripts -------------- -->
+    <script src="{{assets('')}}assets/js/utility/utility.js"></script>
+    <script src="{{assets('')}}assets/js/demo/demo.js"></script>
+    <script src="{{assets('')}}assets/js/main.js"></script>
 
-<!-- -------------- Widget JS -------------- -->
-<script src="/assets/js/demo/widgets.js"></script>
-<script src="/assets/js/demo/widgets_sidebar.js"></script>
-<script src="/assets/js/pages/dashboard1.js"></script>
+    <!-- -------------- Widget JS -------------- -->
+    <script src="{{assets('')}}assets/js/demo/widgets.js"></script>
+    <script src="{{assets('')}}assets/js/demo/widgets_sidebar.js"></script>
+    <script src="{{assets('')}}assets/js/pages/dashboard1.js"></script>
 
-<!-- Sweet alert -->
-<script src="/assets/js/sweetalert.min.js"></script>
+    <!-- Sweet alert -->
+    <script src="{{assets('')}}assets/js/sweetalert.min.js"></script>
 
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'assign-asset')--}}
-    {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
-
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'assign-project')--}}
-    {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
-
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'assign-award')--}}
-    {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
-
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-award-assignment/{id}')--}}
-    {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
-
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-expense')--}}
-    {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
-
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'attendance-manager')--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'total-leave-list')--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
-
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'apply-leave')--}}
-    {{--<script src="/assets/js/function.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'assign-asset')--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
     {{--@endif--}}
 
-{{--<script src="/assets/js/function.js"></script>--}}
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-asset-assignment/{id}')--}}
-    {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'assign-project')--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
 
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'promotion')--}}
-    {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'assign-award')--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
 
-@if(\Route::getFacadeRoot()->current()->uri() == 'edit-promotion/{id}')
-    <script src="/assets/js/pages/forms-widgets.js"></script>
-    <script src="/assets/js/custom.js"></script>
-@endif
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-award-assignment/{id}')--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
 
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-training-invite')--}}
-    {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-expense')--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
 
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-training-invite/{id}')--}}
-    {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
-    {{--<script src="/assets/js/custom.js"></script>--}}
-{{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'attendance-manager')--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'total-leave-list')--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
 
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-training-invite')--}}
-    {{--<script src="/assets/allcp/forms/js/bootstrap-select.js"></script>--}}
-{{--@endif--}}
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-training-invite/{id}')--}}
-    {{--<script src="/assets/allcp/forms/js/bootstrap-select.js"></script>--}}
-{{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'apply-leave')--}}
+    {{--<script src="{{assets('')}}assets/js/function.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
+
+    {{--<script src="{{assets('')}}assets/js/function.js"></script>--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-asset-assignment/{id}')--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
+
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'promotion')--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
+
+    @if(\Route::getFacadeRoot()->current()->uri() == 'edit-promotion/{id}')
+    <script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>
+    <script src="{{assets('')}}assets/js/custom.js"></script>
+    @endif
+
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-training-invite')--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
+
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-training-invite/{id}')--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/custom.js"></script>--}}
+    {{--@endif--}}
+
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-training-invite')--}}
+    {{--<script src="{{assets('')}}assets/allcp/forms/js/bootstrap-select.js"></script>--}}
+    {{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-training-invite/{id}')--}}
+    {{--<script src="{{assets('')}}assets/allcp/forms/js/bootstrap-select.js"></script>--}}
+    {{--@endif--}}
 
 
 
-<!-- -------------- /Scripts -------------- -->
+    <!-- -------------- /Scripts -------------- -->
 
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-employee' )--}}
-{{--<script src="/assets/js/custom_form_wizard.js"></script>--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-employee' )--}}
+    {{--<script src="{{assets('')}}assets/js/custom_form_wizard.js"></script>--}}
     {{--@endif--}}
 
     {{--@if(\Route::getFacadeRoot()->current()->uri() == 'attendance-upload' )--}}
-        {{--<script src="/assets/js/pages/forms-widgets.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/js/pages/forms-widgets.js"></script>--}}
     {{--@endif--}}
 
     {{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-team')--}}
-        {{--<script src="/assets/allcp/forms/js/bootstrap-select.js"></script>--}}
+    {{--<script src="{{assets('')}}assets/allcp/forms/js/bootstrap-select.js"></script>--}}
     {{--@endif--}}
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-team/{id}')--}}
-    {{--<script src="/assets/allcp/forms/js/bootstrap-select.js"></script>--}}
-{{--@endif--}}
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'create-event')--}}
-        {{--<!-- -------------- DateTime JS -------------- -->--}}
-    {{--<script src="/assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>--}}
-{{--@endif--}}
-{{--@if(\Route::getFacadeRoot()->current()->uri() == 'create-meeting')--}}
-    {{--<!-- -------------- DateTime JS -------------- -->--}}
-    {{--<script src="/assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>--}}
-{{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-team/{id}')--}}
+    {{--<script src="{{assets('')}}assets/allcp/forms/js/bootstrap-select.js"></script>--}}
+    {{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'create-event')--}}
+    {{--
+    <!-- -------------- DateTime JS -------------- -->--}}
+    {{--<script src="{{assets('')}}assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>--}}
+    {{--@endif--}}
+    {{--@if(\Route::getFacadeRoot()->current()->uri() == 'create-meeting')--}}
+    {{--
+    <!-- -------------- DateTime JS -------------- -->--}}
+    {{--<script src="{{assets('')}}assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>--}}
+    {{--@endif--}}
     <script>
         $('#datetimepicker2').datetimepicker();
 
@@ -762,21 +772,22 @@ h
 
         /////////////////////////////////////////////
 
-</script>
+    </script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108812473-2"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108812473-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-108812473-2');
-</script>
+    </script>
 
 
-<script src="/assets/js/pages/allcp_forms-elements.js"></script>
+    <script src="{{assets('')}}assets/js/pages/allcp_forms-elements.js"></script>
 
-@stack('scripts')
+    @stack('scripts')
 </body>
+
 </html>
