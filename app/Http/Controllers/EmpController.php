@@ -28,6 +28,7 @@ class EmpController extends Controller
 
     public function processEmployee(Request $request)
     {
+        // return $request->all();
         $filename = public_path('photos/a.png');
         if ($request->file('photo')) {
             $file             = $request->file('photo');
@@ -45,8 +46,8 @@ class EmpController extends Controller
 
         $user           = new User;
         $user->name     = $request->emp_name;
-        $user->email    = str_replace(' ', '_', $request->emp_name) . '@sipi-ip.sg';
-        $user->password = bcrypt('123456');
+        $user->email    = $request->emp_email;
+        $user->password = bcrypt('123456789');
         $user->save();
 
         $emp                       = new Employee;
@@ -295,7 +296,7 @@ class EmpController extends Controller
                     \Log::info($row->role);
                     $user           = new User;
                     $user->name     = $row->emp_name;
-                    $user->email    = str_replace(' ', '_', $row->emp_name) . '@sipi-ip.sg';
+                    $user->email    = $row->emp_email;
                     $user->password = bcrypt('123456');
                     $user->save();
                     $attachment         = new Employee();
