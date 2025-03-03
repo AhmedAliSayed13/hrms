@@ -17,15 +17,15 @@
 
 
     <!-- -------------- Icomoon -------------- -->
-    {!! Html::style('{{asset('')}}assets/fonts/icomoon/icomoon.css') !!}
+    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/fonts/icomoon/icomoon.css">
 
     <!-- -------------- CSS - theme -------------- -->
-    {!! Html::style('{{asset('')}}assets/skin/default_skin/css/theme.css') !!}
-
+    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/skin/default_skin/css/theme.css">
     <!-- -------------- CSS - allcp forms -------------- -->
-    {!! Html::style('{{asset('')}}assets/allcp/forms/css/forms.css') !!}
+    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/allcp/forms/css/forms.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/custom.css">
+    
 
-    {!! Html::style('{{asset('')}}assets/custom.css') !!}
 
     <!-- -------------- Favicon -------------- -->
     <link rel="shortcut icon" href="{{asset('')}}assets/img/favicon.png">
