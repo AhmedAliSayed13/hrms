@@ -1227,32 +1227,32 @@
     <!-- -------------- Scripts -------------- -->
 
     <!-- -------------- jQuery -------------- -->
-
-    {!! Html::script('{{asset('')}}assets/js/jquery/jquery-1.11.3.min.js') !!}
-    {!! Html::script('{{asset('')}}assets/js/jquery/jquery_ui/jquery-ui.min.js') !!}
+    <script src="{{asset('')}}assets/js/jquery/jquery-1.11.3.min.js"></script>
+    <script src="{{asset('')}}assets/js/jquery/jquery_ui/jquery-ui.min.js"></script>
+    
 
     <!-- -------------- HighCharts Plugin -------------- -->
-    {!! Html::script('{{asset('')}}assets/js/plugins/highcharts/highcharts.js') !!}
-
+    <script src="{{asset('')}}assets/js/plugins/highcharts/highcharts.js"></script>
     <!-- -------------- MonthPicker JS -------------- -->
-    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery-ui-monthpicker.min.js') !!}
-    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery-ui-datepicker.min.js') !!}
-    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery.spectrum.min.js') !!}
-    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery.stepper.min.js') !!}
+    <script src="{{asset('')}}assets/allcp/forms/js/jquery-ui-monthpicker.min.js"></script>
+    <script src="{{asset('')}}assets/allcp/forms/js/jquery-ui-datepicker.min.js"></script>
+    <script src="{{asset('')}}assets/allcp/forms/js/jquery.spectrum.min.js"></script>
+    <script src="{{asset('')}}assets/allcp/forms/js/jquery.stepper.min.js"></script>
+    
 
 
     <!-- -------------- Plugins -------------- -->
-    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery.validate.min.js') !!}
-    {!! Html::script('{{asset('')}}assets/allcp/forms/js/jquery.steps.min.js') !!}
+    <script src="{{asset('')}}assets/allcp/forms/js/jquery.validate.min.js"></script>
+    <script src="{{asset('')}}assets/allcp/forms/js/jquery.steps.min.js"></script>
 
     <!-- -------------- Theme Scripts -------------- -->
-    {!! Html::script('{{asset('')}}assets/js/utility/utility.js') !!}
-    {!! Html::script('{{asset('')}}assets/js/demo/demo.js') !!}
-    {!! Html::script('{{asset('')}}assets/js/main.js') !!}
-    {!! Html::script('{{asset('')}}assets/js/demo/widgets_sidebar.js') !!}
-    {!! Html::script('{{asset('')}}assets/js/custom_form_wizard.js') !!}
-
-    {!! Html::script ('{{asset('')}}assets/js/pages/forms-widgets.js')!!}
+    <script src="{{asset('')}}assets/js/utility/utility.js"></script>
+    <script src="{{asset('')}}assets/js/demo/demo.js"></script>
+    <script src="{{asset('')}}assets/js/main.js"></script>
+    <script src="{{asset('')}}assets/js/demo/widgets_sidebar.js"></script>
+    <script src="{{asset('')}}assets/js/custom_form_wizard.js"></script>
+    <script src="{{asset('')}}assets/js/pages/forms-widgets.js"></script>
+    
     @push('scripts')
     <script src="{{asset('')}}assets/js/custom_form_wizard.js"></script>
     @endpush
