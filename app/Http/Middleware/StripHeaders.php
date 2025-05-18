@@ -33,14 +33,14 @@ class StripHeaders
             'x-forwarded-server',
             'x-real-ip',
             'upgrade-insecure-requests',
-            // 'cookie',
+            'cookie',
             // أضف الرؤوس التي تريد حذفها
         ];
 
         foreach ($headersToRemove as $header) {
-            if ($request->headers->has($header)) {
+            // if ($request->headers->has($header)) {
                 $request->headers->remove($header);
-            }
+            // }
         }
 
         return $next($request);
