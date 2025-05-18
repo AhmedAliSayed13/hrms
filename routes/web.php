@@ -338,4 +338,10 @@ Route::group(['middleware' => ['auth']], function ()
 
     //Route::get('assign-project', 'ProjectController@assignProject')->name('assign-project');
 
+    Route::get('/show-headers', function (\Illuminate\Http\Request $request) {
+    $headersCount = count($request->headers->all());
+    return "Request Headers Count: " . $headersCount;
+    
+})->middleware('strip_headers');
+
 });
