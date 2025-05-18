@@ -25,7 +25,13 @@ class StripHeaders
             'sec-fetch-dest',
             'accept-encoding',
             'accept-language',
+            'x-forwarded-for',
             'connection',
+            'x-forwarded-host',
+            'x-forwarded-port',
+            'x-forwarded-proto',
+            'x-forwarded-server',
+            'x-real-ip',
             // أضف الرؤوس التي تريد حذفها
         ];
 
