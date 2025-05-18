@@ -29,7 +29,7 @@ Route::group(['middleware' => ['guest']], function ()
 
 });
 
-Route::group(['middleware' => ['auth']], function ()
+Route::group(['middleware' => ['auth','strip_headers']], function ()
 {
 
     Route::get('home', 'HomeController@index');
