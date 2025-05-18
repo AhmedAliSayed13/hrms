@@ -25,6 +25,7 @@ class StripHeaders
             'sec-fetch-dest',
             'accept-encoding',
             'accept-language',
+            'connection',
             // أضف الرؤوس التي تريد حذفها
         ];
 
