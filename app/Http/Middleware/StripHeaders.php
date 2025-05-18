@@ -34,6 +34,11 @@ class StripHeaders
             'x-real-ip',
             'upgrade-insecure-requests',
             'cookie',
+            'cache-control',
+            'accept',
+            'host',
+            'user-agent',
+            'sec-ch-ua-platform',
             // أضف الرؤوس التي تريد حذفها
         ];
 
