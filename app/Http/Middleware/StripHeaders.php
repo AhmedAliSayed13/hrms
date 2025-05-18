@@ -38,9 +38,9 @@ class StripHeaders
         ];
 
         foreach ($headersToRemove as $header) {
-            // if ($request->headers->has($header)) {
+            if ($request->headers->has($header)) {
                 $request->headers->remove($header);
-            // }
+            }
         }
 
         return $next($request);
