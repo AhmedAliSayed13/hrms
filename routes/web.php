@@ -13,7 +13,7 @@
 
 //Route::group(['middleware' => ['web']], function () {
 
-Route::group(['middleware' => ['guest', 'strip_headers']], function ()
+Route::group(['middleware' => ['guest']], function ()
 {
 
     Route::get('/', 'AuthController@showLogin');
@@ -343,5 +343,18 @@ Route::group(['middleware' => ['auth']], function ()
     return  $headersCount;
     
 })->middleware('strip_headers');
+
+Route::get('/response-headers', function () {
+    $response = response('Test response');
+    // جلب جميع رؤوس الـ Response
+    $headers = $response->headers->all();
+
+    // عرض عدد الرؤوس ومحتواها (اختياري)
+    return response()->json([
+        'count' => count($headers),
+        'headers' => $headers,
+    ]);
+});
+
 
 });

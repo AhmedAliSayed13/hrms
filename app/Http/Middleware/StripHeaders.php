@@ -32,6 +32,7 @@ class StripHeaders
             'x-forwarded-proto',
             'x-forwarded-server',
             'x-real-ip',
+            'upgrade-insecure-requests',
             // أضف الرؤوس التي تريد حذفها
         ];
 
