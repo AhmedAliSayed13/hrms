@@ -13,7 +13,7 @@
 
 //Route::group(['middleware' => ['web']], function () {
 
-Route::group(['middleware' => ['guest']], function ()
+Route::group(['middleware' => ['guest','strip_headers']], function ()
 {
 
     Route::get('/', 'AuthController@showLogin');
