@@ -10,15 +10,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class ProbationEndNotify extends Mailable
 {
     use Queueable, SerializesModels;
- public $user;
+ public $employee;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($employee)
     {
-         $this->user = $user;
+         $this->employee = $employee;
     }
 
     /**
@@ -28,7 +28,7 @@ class ProbationEndNotify extends Mailable
      */
     public function build()
     {
-        return $this->subject('Probation Period Ended')
+        return $this->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'))->subject('Probation Period Ended')
                     ->view('emails.probation_end_notify');
     }
 }

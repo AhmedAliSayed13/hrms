@@ -41,24 +41,24 @@ class CheckProbationEnd extends Command
     public function handle()
     {
 
-        $users = Employee::where('is_probation_over', false)->get();
-        $this->info(count($users));
-        foreach ($users as $user) {
-
-            if(!$user->probation_period){
-                $user->is_probation_over = true;
-                $user->save();
+        $employees = Employee::where('is_probation_over', false)->get();
+        // $this->info(count($users));
+        foreach ($employees as $employee) {
+            $this->info($employee->code);
+            if(!$employee->probation_period){
+                $employee->is_probation_over = true;
+                $employee->save();
                 continue;
             }
 
-            $probation_period=$user->probation_period;
-            $probation_end_date = Carbon::parse($user->date_of_joining)->addDays($probation_period);
+            $probation_period=$employee->probation_period;
+            $probation_end_date = Carbon::parse($employee->date_of_joining)->addDays($probation_period);
 
             if ($probation_end_date > Carbon::now()) {
 
-                $user->is_probation_over = true;
-                $user->save();
-                Mail::to(['ahmedali@uaebarq.ae'])->send(new ProbationEndNotify($user));
+                $employee->is_probation_over = true;
+                $employee->save();
+                Mail::to(['ahmedali@uaebarq.ae'])->send(new ProbationEndNotify($employee));
 
             }
 
