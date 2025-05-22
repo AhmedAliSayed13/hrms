@@ -28,7 +28,7 @@ class EmployeeRequest extends Request
             'emp_code' => 'required',
             'emp_name' => 'required',
             'emp_status' => 'required',
-            'mob_number' => 'required|digits:10|',
+            'mob_number' => 'required',
             'doj' => 'date',
             'role' => 'required'
         ];

@@ -618,7 +618,7 @@
 
                                     <div class="section">
                                         <label for="input002">
-                                            <h6 class="mb20 mt40"> PAN Number </h6>
+                                            <h6 class="mb20 mt40"> Card/Visa Number </h6>
                                         </label>
                                         <label for="input002" class="field prepend-icon">
                                             @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')

@@ -30,6 +30,7 @@ class CreateEmployeesTable extends Migration
             $table->string('permanent_address');
             $table->tinyInteger('formalities');
             $table->tinyInteger('offer_acceptance');
+            $table->tinyInteger('is_probation_over')->default(0);
             $table->string('probation_period');
             $table->date('date_of_confirmation');
             $table->string('department');
