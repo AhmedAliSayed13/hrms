@@ -4,6 +4,7 @@ namespace App;
 use App\Models\Employee;
 use App\Models\Project;
 use App\Models\UserRole;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
@@ -90,5 +91,10 @@ class User extends Authenticatable
     public function project()
     {
         return $this->hasMany(Project::class);
+    }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles', 'user_id', 'role_id')
+                    ->withPivot('assigned_by', 'expires_at'); // extra pivot columns if exist
     }
 }

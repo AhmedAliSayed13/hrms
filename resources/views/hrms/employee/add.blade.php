@@ -464,7 +464,7 @@
                                             @endforeach
                                         </select>
                                         @else
-                                        <select class="select2-single form-control" name="role" id="role">
+                                        <select class="select2-single form-control" name="role" id="role" required>
                                             <option value="">Select role</option>
                                             @foreach($roles as $role)
                                             <option value="{{$role->id}}">{{$role->name}}</option>
@@ -549,14 +549,14 @@
                                         <label for="input002" class="field prepend-icon">
                                             @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')
                                             <input type="number" name="mob_number" id="mobile_phone"
-                                                class="gui-input phone-group" maxlength="10" minlength="10" required
+                                                class="gui-input phone-group"  required
                                                 value="@if($emps && $emps->employee->number){{$emps->employee->number}}@endif">
                                             <label for="input002" class="field-icon">
                                                 <i class="fa fa-mobile-phone"></i>
                                             </label>
                                             @else
                                             <input type="number" name="mob_number" id="mobile_phone"
-                                                class="gui-input phone-group" maxlength="10" minlength="10" required
+                                                class="gui-input phone-group"  required
                                                 placeholder="mobile number...">
                                             <label for="input002" class="field-icon">
                                                 <i class="fa fa-mobile-phone"></i>

@@ -1,3 +1,6 @@
 /vendor
 .env
 .idea
+
+/public/photos
+/storage/export
