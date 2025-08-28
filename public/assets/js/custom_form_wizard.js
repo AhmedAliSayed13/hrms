@@ -70,6 +70,7 @@
                 var datepicker5 = $('#datepicker5').val();
                 var department = $('#department').val();
                 var salary = $('#salary').val();
+                var gross_salary = $('#gross_salary').val();
                 var bank_account_number = $('#bank_account_number').val();
                 var bank_name = $('#bank_name').val();
                 var ifsc_code = $('#ifsc_code').val();
@@ -109,6 +110,7 @@
                 formData.append('father_name', father_name);
                 formData.append('department', department);
                 formData.append('salary', salary);
+                formData.append('gross_salary', gross_salary);
                 formData.append('account_number', bank_account_number);
                 formData.append('bank_name', bank_name);
                 formData.append('ifsc_code', ifsc_code);

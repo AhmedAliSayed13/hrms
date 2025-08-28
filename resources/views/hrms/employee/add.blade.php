@@ -406,7 +406,7 @@
                                         <label for="input002" class="field prepend-icon">
                                             @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')
                                             <input type="text" name="emp_email" id="emp_email" class="gui-input"
-                                                value="@if($emps && $emps->employee->email){{$emps->employee->email}}@endif"
+                                                value="@if($emps && $emps->email){{$emps->email}}@endif"
                                                 required>
                                             <label for="input002" class="field-icon">
                                                 <i class="fa fa-user"></i>
@@ -850,7 +850,7 @@
 
                                     <div class="section">
                                         <label for="input002">
-                                            <h6 class="mb20 mt40"> Salary on Confirmation </h6>
+                                            <h6 class="mb20 mt40">Net Salary</h6>
                                         </label>
                                         <label for="input002" class="field prepend-icon">
                                             @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')
@@ -862,6 +862,27 @@
                                             </label>
                                             @else
                                             <input type="text" placeholder="e.g 12000" name="salary" id="salary"
+                                                class="gui-input">
+                                            <label for="input002" class="field-icon">
+                                                <i class="fa fa-inr"></i>
+                                            </label>
+                                            @endif
+                                        </label>
+                                    </div>
+                                    <div class="section">
+                                        <label for="input002">
+                                            <h6 class="mb20 mt40">Gross Salary</h6>
+                                        </label>
+                                        <label for="input002" class="field prepend-icon">
+                                            @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')
+                                            <input type="text" name="gross_salary" id="gross_salary" class="gui-input"
+                                                value="@if($emps && $emps->employee->gross_salary){{$emps->employee->gross_salary}}@endif"
+                                                >
+                                            <label for="input002" class="field-icon">
+                                                <i class="fa fa-inr"></i>
+                                            </label>
+                                            @else
+                                            <input type="text" placeholder="e.g 15000" name="gross_salary" id="gross_salary"
                                                 class="gui-input">
                                             <label for="input002" class="field-icon">
                                                 <i class="fa fa-inr"></i>

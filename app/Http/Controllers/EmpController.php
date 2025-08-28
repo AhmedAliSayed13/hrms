@@ -71,6 +71,7 @@ class EmpController extends Controller
         $emp->date_of_confirmation = date_format(date_create($request->date_of_confirmation), 'Y-m-d');
         $emp->department           = $request->department;
         $emp->salary               = $request->salary;
+        $emp->gross_salary         = $request->gross_salary;
         $emp->account_number       = $request->account_number;
         $emp->bank_name            = $request->bank_name;
         $emp->ifsc_code            = $request->ifsc_code;
@@ -110,6 +111,7 @@ class EmpController extends Controller
         $emps = User::where('id', $id)->with('employee', 'role.role')->first();
 
         $roles = Role::get();
+        
 
         return view('hrms.employee.add', compact('emps', 'roles'));
     }
@@ -152,6 +154,7 @@ class EmpController extends Controller
         $doc               = date_format(date_create($request->date_of_confirmation), 'Y-m-d');
         $department        = $request->department;
         $salary            = $request->salary;
+        $gross_salary            = $request->gross_salary;
         $account_number    = $request->account_number;
         $bank_name         = $request->bank_name;
         $ifsc_code         = $request->ifsc_code;
@@ -232,6 +235,9 @@ class EmpController extends Controller
         if (!empty($salary)) {
             $edit->salary = $salary;
         }
+        if (!empty($gross_salary)) {
+            $edit->gross_salary = $gross_salary;
+        }
         if (!empty($account_number)) {
             $edit->account_number = $account_number;
         }
@@ -290,7 +296,7 @@ class EmpController extends Controller
         /* try {*/
         foreach ($files as $file) {
             Excel::load($file, function ($reader) {
-                $rows = $reader->get(['emp_name', 'emp_code', 'emp_status', 'role', 'gender', 'dob', 'doj', 'mob_number', 'qualification', 'emer_number', 'pan_number', 'father_name', 'address', 'permanent_address', 'formalities', 'offer_acceptance', 'prob_period', 'doc', 'department', 'salary', 'account_number', 'bank_name', 'ifsc_code', 'pf_account_number', 'un_number', 'pf_status', 'dor', 'notice_period', 'last_working_day', 'full_final']);
+                $rows = $reader->get(['emp_name', 'emp_code', 'emp_status', 'role', 'gender', 'dob', 'doj', 'mob_number', 'qualification', 'emer_number', 'pan_number', 'father_name', 'address', 'permanent_address', 'formalities', 'offer_acceptance', 'prob_period', 'doc', 'department', 'salary','gross_salary', 'account_number', 'bank_name', 'ifsc_code', 'pf_account_number', 'un_number', 'pf_status', 'dor', 'notice_period', 'last_working_day', 'full_final']);
 
                 foreach ($rows as $row) {
                     \Log::info($row->role);
@@ -384,6 +390,11 @@ class EmpController extends Controller
                         $attachment->salary = '00000';
                     } else {
                         $attachment->salary = $row->salary;
+                    }
+                    if (empty($row->gross_salary)) {
+                        $attachment->gross_salary = '00000';
+                    } else {
+                        $attachment->gross_salary = $row->gross_salary;
                     }
                     if (empty($row->account_number)) {
                         $attachment->account_number = 'Not Exist';
@@ -496,7 +507,7 @@ class EmpController extends Controller
             $filePath = storage_path('export/') . $fileName;
             $file     = new \SplFileObject($filePath, "a");
             // Add header to csv file.
-            $headers = ['id', 'photo', 'code', 'name', 'status', 'gender', 'date_of_birth', 'date_of_joining', 'number', 'qualification', 'emergency_number', 'pan_number', 'father_name', 'current_address', 'permanent_address', 'formalities', 'offer_acceptance', 'probation_period', 'date_of_confirmation', 'department', 'salary', 'account_number', 'bank_name', 'ifsc_code', 'pf_account_number', 'un_number', 'pf_status', 'date_of_resignation', 'notice_period', 'last_working_day', 'full_final', 'user_id', 'created_at', 'updated_at'];
+            $headers = ['id', 'photo', 'code', 'name', 'status', 'gender', 'date_of_birth', 'date_of_joining', 'number', 'qualification', 'emergency_number', 'pan_number', 'father_name', 'current_address', 'permanent_address', 'formalities', 'offer_acceptance', 'probation_period', 'date_of_confirmation', 'department', 'salary','gross_salary', 'account_number', 'bank_name', 'ifsc_code', 'pf_account_number', 'un_number', 'pf_status', 'date_of_resignation', 'notice_period', 'last_working_day', 'full_final', 'user_id', 'created_at', 'updated_at'];
             $file->fputcsv($headers);
             foreach ($emps as $emp) {
                 $file->fputcsv([
@@ -522,6 +533,7 @@ class EmpController extends Controller
                                    $emp->employee->date_of_confirmation,
                                    $emp->employee->department,
                                    $emp->employee->salary,
+                                   $emp->employee->gross_salary,
                                    $emp->employee->account_number,
                                    $emp->employee->bank_name,
                                    $emp->employee->ifsc_code,
