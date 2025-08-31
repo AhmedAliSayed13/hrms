@@ -2,11 +2,11 @@
 <div class="sidebar-widget author-widget">
     <div class="media">
         <a href="/profile" class="media-left">
-            @if(isset(Auth::user()->employee->photo))
+            @if(isset(Auth::user()->employee->photo) && Auth::user()->employee->photo != '')
             <img src="{{asset('photos/'.Auth::user()->employee->photo)}}" width="40px" height="30px"
                 class="img-responsive">
             @else
-            <img src="{{asset('')}}assets/img/avatars/profile_pic.png" class="img-responsive">
+            <img src="{{asset('img/Emp.png')}}" class="img-responsive">
             @endif
 
         </a>

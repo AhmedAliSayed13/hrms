@@ -76,6 +76,23 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label"> Permissions </label>
+                                            <div class="col-md-6">
+                                                <select name="permissions[]" class="select2-multiple form-control populate" multiple="multiple">
+                                                    @foreach($permissions as $permission)
+
+                                                    @if(\Route::getFacadeRoot()->current()->uri() == 'edit-role/{id}')
+                                                        <option value="{{$permission->id}}" {{in_array($permission->id, $role_permissions) ? 'selected' : ''}}>{{$permission->name}}</option>
+                                                        @else
+                                                        <option value="{{$permission->id}}">{{$permission->name}}</option>
+                                                        
+                                                    @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
 
                                         <div class="form-group">
                                             <label class="col-md-3 control-label"> Description </label>

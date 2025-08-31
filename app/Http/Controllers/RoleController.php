@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\Role;
 use App\User;
+use App\Permission;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 
@@ -14,7 +16,8 @@ class RoleController extends Controller
 {
     public function addRole()
     {
-        return view('hrms.role.add_role');
+        $permissions = Permission::all();
+        return view('hrms.role.add_role', compact('permissions'));
     }
 
     Public function processRole(Request $request)
@@ -23,7 +26,16 @@ class RoleController extends Controller
         $role = new Role;
         $role->name = $request->name;
         $role->description = $request->description;
+
         $role->save();
+        if ($request->has('permissions')) {
+            foreach ($request->permissions as $permission_id) {
+                DB::table('role_permissions')->insert([
+                    'role_id' => $role->id,
+                    'permission_id' => $permission_id
+                ]);
+            }
+        }
         \Session::flash('flash_message', 'Role successfully added!');
         return redirect()->back();
 
@@ -31,6 +43,7 @@ class RoleController extends Controller
 
     public function showRole()
     {
+        
         $roles = Role::paginate(10);
         return view('hrms.role.show_role', compact('roles'));
     }
@@ -38,7 +51,9 @@ class RoleController extends Controller
     public function showEdit($id)
     {
         $result = Role::whereid($id)->first();
-        return view('hrms.role.add_role', compact('result'));
+        $permissions = Permission::all();
+        $role_permissions= DB::table('role_permissions')->where('role_id', $id)->pluck('permission_id')->toArray();
+        return view('hrms.role.add_role', compact('result', 'permissions', 'role_permissions'));
     }
 
     public function doEdit(Request $request, $id)
@@ -54,6 +69,16 @@ class RoleController extends Controller
             $edit->description = $description;
         }
         $edit->save();
+
+        DB::table('role_permissions')->where('role_id', $id)->delete();
+        if ($request->has('permissions')) {
+            foreach ($request->permissions as $permission_id) {
+                DB::table('role_permissions')->insert([
+                    'role_id' => $id,
+                    'permission_id' => $permission_id
+                ]);
+            }
+        }
         \Session::flash('flash_message', 'Role successfully updated!');
         return redirect('role-list');
     }
@@ -61,6 +86,8 @@ class RoleController extends Controller
     public function doDelete($id)
     {
         $role = Role::find($id);
+        DB::table('role_permissions')->where('role_id', $id)->delete();
+        DB::table('user_roles')->where('role_id', $id)->delete();
         $role->delete();
         \Session::flash('flash_message', 'Role successfully Deleted!');
         return redirect('role-list');

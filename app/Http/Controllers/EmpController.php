@@ -29,7 +29,7 @@ class EmpController extends Controller
     public function processEmployee(Request $request)
     {
         // return $request->all();
-        $filename = public_path('photos/a.png');
+        $filename = public_path('img/Emp.png');
         if ($request->file('photo')) {
             $file             = $request->file('photo');
             $filename         = str_random(12);
