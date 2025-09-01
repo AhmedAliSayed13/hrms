@@ -14,28 +14,32 @@ class PermissionsSeeder extends Seeder
         $permissions = [
 
             // 🔹 Employees
-            'create-employee',
-            'list-employee',
-            'update-employee',
-            'delete-employee',
-
+            'employee-management',
             // 🔹 Teams
-            'create-team',
-            'team-listing',
-            'update-team',
-            'delete-team',
+            'team-management',
 
             // 🔹 Roles
-            'create-role',
-            'role-list',
-            'update-role',
-            'delete-role',
+            'role-management',
+
+            // 🔹 Assets
+            'asset-management',
+
+            // 🔹 Clients
+            'client-management',
+
+            // 🔹 Projects
+            'project-management',
 
             // 🔹 Expenses
-            'create-expense',
-            'expense-list',
-            'update-expense',
-            'delete-expense',
+            'expense-management',
+            // 🔹 Departments
+            'department-management',
+
+            // 🔹 Training
+            'training-management',
+
+            // 🔹 Trainers
+            'trainer-management',
 
             // 🔹 Leaves
             'create-leave',
@@ -49,35 +53,9 @@ class PermissionsSeeder extends Seeder
             'update-attendance',
             'delete-attendance',
 
-            // 🔹 Assets
-            'create-asset',
-            'asset-list',
-            'update-asset',
-            'delete-asset',
+            
 
-            // 🔹 Clients
-            'create-client',
-            'client-list',
-            'update-client',
-            'delete-client',
-
-            // 🔹 Projects
-            'create-project',
-            'project-list',
-            'update-project',
-            'delete-project',
-
-            // 🔹 Training
-            'create-training',
-            'training-list',
-            'update-training',
-            'delete-training',
-
-            // 🔹 Trainers
-            'create-trainer',
-            'trainer-list',
-            'update-trainer',
-            'delete-trainer',
+            
 
             // 🔹 Holidays
             'create-holiday',
@@ -100,11 +78,7 @@ class PermissionsSeeder extends Seeder
             'generate-payroll',
             'delete-payroll',
 
-            // 🔹 Departments
-            'create-department',
-            'department-list',
-            'update-department',
-            'delete-department',
+            
 
             // 🔹 Resignation استقالة
             'view-resignation',
@@ -135,7 +109,9 @@ class PermissionsSeeder extends Seeder
             'update-termination',
             'delete-termination',
         ];
-
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('permissions')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         foreach ($permissions as $perm) {
             DB::table('permissions')->insert(['name' => $perm]);
         }

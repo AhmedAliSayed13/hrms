@@ -32,7 +32,7 @@
 
         <!-- -------------- Quick Links -------------- -->
         <div class="row">
-            @if(Auth::user()->isHR())
+            
             <div class="col-sm-6 col-xl-3">
                 <div class="panel panel-tile">
                     <div class="panel-body">
@@ -101,8 +101,7 @@
             </div>
 
 
-            @endif
-                @if(!Auth::user()->isHR())
+            
                 <div class="col-sm-6 col-xl-3">
                     <div class="panel panel-tile">
                         <div class="panel-body">
@@ -116,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                @endif
+                
 
             <div class="col-sm-6 col-xl-3">
                 <div class="panel panel-tile">

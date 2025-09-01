@@ -196,14 +196,14 @@
      */
     public function showAllLeave()
     {
-      if(!\Auth::user()->isHR())
-      {
-        $leaves = EmployeeLeaves::with('user.employee')->where('tl_id', \Auth::user()->id)->orWhere('manager_id', \Auth::user()->id)->paginate(15);
-      }
-      else
-      {
+      // if(!\Auth::user()->isHR())
+      // {
+      //   $leaves = EmployeeLeaves::with('user.employee')->where('tl_id', \Auth::user()->id)->orWhere('manager_id', \Auth::user()->id)->paginate(15);
+      // }
+      // else
+      // {
         $leaves = EmployeeLeaves::with('user.employee')->paginate(15);
-      }
+      // }
 
       $column = '';
       $string = '';

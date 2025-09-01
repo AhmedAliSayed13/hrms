@@ -11,100 +11,28 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('roles')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         \DB::table('roles')->insert([
             [
+                'id'=>1,
                 'name' => 'Admin',
                 'description' => 'Has all the rights',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
             ],
             [
-                'name' => 'Director',
-                'description' => 'Company Director',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Research Analyst',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Senior Research Analyst',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Team Lead',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'IT Executive',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
+                'id'=>2,
                 'name' => 'HR Manager',
                 'description' => 'Human Resource Manager',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
             ],
             [
-                'name' => 'Associate-Enforcement',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Enforcement Head',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Finance Controller',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Consultant',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Front Desk Executive',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Software Developer',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Senior Software Developer',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Accounts Executive',
-                'description' => 'Has all the rights',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
-            [
-                'name' => 'Manager',
-                'description' => 'Has all the rights',
+                'id'=>3,
+                'name' => 'Employee',
+                'description' => 'Regular Employee',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
             ],

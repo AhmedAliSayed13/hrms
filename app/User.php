@@ -5,6 +5,7 @@ use App\Models\Employee;
 use App\Models\Project;
 use App\Models\UserRole;
 use App\Models\Role;
+use App\Permission;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
@@ -58,10 +59,10 @@ class User extends Authenticatable
     {
         $userId = Auth::user()->id;
         $userRole = UserRole::where('user_id', $userId)->first();
-        if($userRole->role_id != 3)
-        {
+        // if($userRole->role_id != 3)
+        // {
             return true;
-        }
+        // }
         return false;
     }
 
@@ -96,5 +97,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class, 'user_roles', 'user_id', 'role_id')
                     ->withPivot('assigned_by', 'expires_at'); // extra pivot columns if exist
+    }
+    public function hasAnyPermission(array $permissions): bool
+    {
+        return $this->roles()->whereHas('permissions', function ($q) use ($permissions) {
+            $q->whereIn('name', $permissions);
+        })->exists();
     }
 }
