@@ -126,32 +126,32 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     Route::get('add-team', [
         'as'   => 'add-team',
         'uses' => 'TeamController@addTeam',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:team-management');
 
     Route::post('add-team', [
         'as'   => 'add-team',
         'uses' => 'TeamController@processTeam',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:team-management');
 
     Route::get('team-listing', [
         'as'   => 'team-listing',
         'uses' => 'TeamController@showTeam',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:team-management');
 
     Route::get('edit-team/{id}', [
         'as'   => 'edit-team',
         'uses' => 'TeamController@showEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:team-management');
 
     Route::post('edit-team/{id}', [
         'as'   => 'edit-team',
         'uses' => 'TeamController@doEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:team-management');
 
     Route::get('delete-team/{id}', [
         'as'   => 'delete-team',
         'uses' => 'TeamController@doDelete',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:team-management');
 
     //Routes for Role.
 
