@@ -158,32 +158,32 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     Route::get('add-role', [
         'as'   => 'add-role',
         'uses' => 'RoleController@addRole',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:role-management');
 
     Route::post('add-role', [
         'as'   => 'add-role',
         'uses' => 'RoleController@processRole',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:role-management');
 
     Route::get('role-list', [
         'as'   => 'role-list',
         'uses' => 'RoleController@showRole',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:role-management');
 
     Route::get('edit-role/{id}', [
         'as'   => 'edit-role',
         'uses' => 'RoleController@showEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:role-management');
 
     Route::post('edit-role/{id}', [
         'as'   => 'edit-role',
         'uses' => 'RoleController@doEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:role-management');
 
     Route::get('delete-role/{id}', [
         'as'   => 'delete-role',
         'uses' => 'RoleController@doDelete',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:role-management');
 
     //Routes for Expense.
 
@@ -315,62 +315,62 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     Route::get('add-asset', [
         'as'   => 'add-asset',
         'uses' => 'AssetController@addAsset',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::post('add-asset', [
         'as'   => 'add-asset',
         'uses' => 'AssetController@processAsset',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::get('asset-listing', [
         'as'   => 'asset-listing',
         'uses' => 'AssetController@showAsset',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::get('edit-asset/{id}', [
         'as'   => 'edit-asset',
         'uses' => 'AssetController@showEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::post('edit-asset/{id}', [
         'as'   => 'edit-asset',
         'uses' => 'AssetController@doEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::get('delete-asset/{id}', [
         'as'   => 'delete-asset',
         'uses' => 'AssetController@doDelete',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::get('assign-asset', [
         'as'   => 'assign-asset',
         'uses' => 'AssetController@doAssign',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::post('assign-asset', [
         'as'   => 'assign-asset',
         'uses' => 'AssetController@processAssign',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::get('assignment-listing', [
         'as'   => 'assignment-listing',
         'uses' => 'AssetController@showAssignment',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::get('edit-asset-assignment/{id}', [
         'as'   => 'edit-asset-assignment',
         'uses' => 'AssetController@showEditAssign',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::post('edit-asset-assignment/{id}', [
         'as'   => 'edit-asset-assignment',
         'uses' => 'AssetController@doEditAssign',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::get('delete-asset-assignment/{id}', [
         'as'   => 'delete-asset-assignment',
         'uses' => 'AssetController@doDeleteAssign',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:asset-management');
 
     Route::get('hr-policy', [
         'as'   => 'hr-policy',
