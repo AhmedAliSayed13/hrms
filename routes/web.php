@@ -606,66 +606,66 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
 
     Route::get('add-project', 'ProjectController@addProject')
         ->name('add-project')
-        ->middleware('strip_headers');
+        ->middleware('strip_headers','permission:project-management');
 
     Route::post('add-project', 'ProjectController@saveProject')->middleware(
-        'strip_headers'
+        'strip_headers','permission:project-management'
     );
 
     Route::get('edit-project/{projectId}', 'ProjectController@showEdit')->name(
         'edit-project'
-    );
+    )->middleware('permission:project-management');
 
     //    Route::post('edit-project/{projectId}', 'ProjectController@saveProjectEdit');
 
     Route::get('list-project', 'ProjectController@listProject')->name(
         'list-project'
-    );
+    )->middleware('permission:project-management');
 
     Route::get('edit-project/{id}', [
         'as'   => 'edit-project',
         'uses' => 'ProjectController@showEdit',
-    ]);
+    ])->middleware('permission:project-management');
 
     Route::post('edit-project/{id}', [
         'as'   => 'edit-project',
         'uses' => 'ProjectController@doEdit',
-    ]);
+    ])->middleware('permission:project-management');
 
     Route::get('delete-project/{id}', [
         'as'   => 'delete-project',
         'uses' => 'ProjectController@doDelete',
-    ]);
+    ])->middleware('permission:project-management');
 
     Route::get('assign-project', [
         'as'   => 'assign-project',
         'uses' => 'ProjectController@doAssign',
-    ]);
+    ])->middleware('permission:project-management');
 
     Route::post('assign-project', [
         'as'   => 'assign-project',
         'uses' => 'ProjectController@processAssign',
-    ]);
+    ])->middleware('permission:project-management');
 
     Route::get('project-assignment-listing', [
         'as'   => 'project-assignment-listing',
         'uses' => 'ProjectController@showProjectAssignment',
-    ]);
+    ])->middleware('permission:project-management');
 
     Route::get('edit-project-assignment/{id}', [
         'as'   => 'edit-project-assignment',
         'uses' => 'ProjectController@showEditAssign',
-    ]);
+    ])->middleware('permission:project-management');
 
     Route::post('edit-project-assignment/{id}', [
         'as'   => 'edit-project-assignment',
         'uses' => 'ProjectController@doEditAssign',
-    ]);
+    ])->middleware('permission:project-management');
 
     Route::get('delete-project-assignment/{id}', [
         'as'   => 'delete-project-assignment',
         'uses' => 'ProjectController@doDeleteAssign',
-    ]);
+    ])->middleware('permission:project-management');
 
     //Route::get('assign-project', 'ProjectController@assignProject')->name('assign-project');
 });
