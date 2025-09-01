@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     );
 
     Route::get('dashboard', [
-        'as' => 'dashboard',
+        'as'   => 'dashboard',
         'uses' => 'AuthController@dashboard',
     ])->middleware('strip_headers');
 
@@ -68,48 +68,48 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     //Routes for add-employees
 
     Route::get('add-employee', [
-        'as' => 'add-employee',
+        'as'   => 'add-employee',
         'uses' => 'EmpController@addEmployee',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:employee-management');
 
     Route::post('add-employee', [
-        'as' => 'add-employee',
+        'as'   => 'add-employee',
         'uses' => 'EmpController@processEmployee',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:employee-management');
 
     Route::get('employee-manager', [
-        'as' => 'employee-manager',
+        'as'   => 'employee-manager',
         'uses' => 'EmpController@showEmployee',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:employee-management');
 
     Route::post('employee-manager', 'EmpController@searchEmployee')->middleware(
-        'strip_headers'
+        'strip_headers','permission:employee-management'
     );
 
     Route::get('upload-emp', [
-        'as' => 'upload-emp',
+        'as'   => 'upload-emp',
         'uses' => 'EmpController@importFile',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:employee-management');
 
     Route::post('upload-emp', [
-        'as' => 'upload-emp',
+        'as'   => 'upload-emp',
         'uses' => 'EmpController@uploadFile',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:employee-management');
 
     Route::get('edit-emp/{id}', [
-        'as' => 'edit-emp',
+        'as'   => 'edit-emp',
         'uses' => 'EmpController@showEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:employee-management');
 
     Route::post('edit-emp/{id}', [
-        'as' => 'edit-emp',
+        'as'   => 'edit-emp',
         'uses' => 'EmpController@doEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:employee-management');
 
     Route::get('delete-emp/{id}', [
-        'as' => 'delete-emp',
+        'as'   => 'delete-emp',
         'uses' => 'EmpController@doDelete',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:employee-management');
 
     //Routes for Bank Account details
 
@@ -124,148 +124,148 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     //Routes for Team.
 
     Route::get('add-team', [
-        'as' => 'add-team',
+        'as'   => 'add-team',
         'uses' => 'TeamController@addTeam',
     ])->middleware('strip_headers');
 
     Route::post('add-team', [
-        'as' => 'add-team',
+        'as'   => 'add-team',
         'uses' => 'TeamController@processTeam',
     ])->middleware('strip_headers');
 
     Route::get('team-listing', [
-        'as' => 'team-listing',
+        'as'   => 'team-listing',
         'uses' => 'TeamController@showTeam',
     ])->middleware('strip_headers');
 
     Route::get('edit-team/{id}', [
-        'as' => 'edit-team',
+        'as'   => 'edit-team',
         'uses' => 'TeamController@showEdit',
     ])->middleware('strip_headers');
 
     Route::post('edit-team/{id}', [
-        'as' => 'edit-team',
+        'as'   => 'edit-team',
         'uses' => 'TeamController@doEdit',
     ])->middleware('strip_headers');
 
     Route::get('delete-team/{id}', [
-        'as' => 'delete-team',
+        'as'   => 'delete-team',
         'uses' => 'TeamController@doDelete',
     ])->middleware('strip_headers');
 
     //Routes for Role.
 
     Route::get('add-role', [
-        'as' => 'add-role',
+        'as'   => 'add-role',
         'uses' => 'RoleController@addRole',
     ])->middleware('strip_headers');
 
     Route::post('add-role', [
-        'as' => 'add-role',
+        'as'   => 'add-role',
         'uses' => 'RoleController@processRole',
     ])->middleware('strip_headers');
 
     Route::get('role-list', [
-        'as' => 'role-list',
+        'as'   => 'role-list',
         'uses' => 'RoleController@showRole',
     ])->middleware('strip_headers');
 
     Route::get('edit-role/{id}', [
-        'as' => 'edit-role',
+        'as'   => 'edit-role',
         'uses' => 'RoleController@showEdit',
     ])->middleware('strip_headers');
 
     Route::post('edit-role/{id}', [
-        'as' => 'edit-role',
+        'as'   => 'edit-role',
         'uses' => 'RoleController@doEdit',
     ])->middleware('strip_headers');
 
     Route::get('delete-role/{id}', [
-        'as' => 'delete-role',
+        'as'   => 'delete-role',
         'uses' => 'RoleController@doDelete',
     ])->middleware('strip_headers');
 
     //Routes for Expense.
 
     Route::get('add-expense', [
-        'as' => 'add-expense',
+        'as'   => 'add-expense',
         'uses' => 'ExpenseController@addExpense',
     ])->middleware('strip_headers');
 
     Route::post('add-expense', [
-        'as' => 'add-expense',
+        'as'   => 'add-expense',
         'uses' => 'ExpenseController@processExpense',
     ])->middleware('strip_headers');
 
     Route::get('expense-list', [
-        'as' => 'expense-list',
+        'as'   => 'expense-list',
         'uses' => 'ExpenseController@showExpense',
     ])->middleware('strip_headers');
 
     Route::get('edit-expense/{id}', [
-        'as' => 'edit-expense',
+        'as'   => 'edit-expense',
         'uses' => 'ExpenseController@showEdit',
     ])->middleware('strip_headers');
 
     Route::post('edit-expense/{id}', [
-        'as' => 'edit-expense',
+        'as'   => 'edit-expense',
         'uses' => 'ExpenseController@doEdit',
     ])->middleware('strip_headers');
 
     Route::get('delete-expense/{id}', [
-        'as' => 'delete-expense',
+        'as'   => 'delete-expense',
         'uses' => 'ExpenseController@doDelete',
     ])->middleware('strip_headers');
 
     //Routes for Leave.
 
     Route::get('add-leave-type', [
-        'as' => 'add-leave-type',
+        'as'   => 'add-leave-type',
         'uses' => 'LeaveController@addLeaveType',
     ])->middleware('strip_headers');
 
     Route::post('add-leave-type', [
-        'as' => 'add-leave-type',
+        'as'   => 'add-leave-type',
         'uses' => 'LeaveController@processLeaveType',
     ])->middleware('strip_headers');
 
     Route::get('leave-type-listing', [
-        'as' => 'leave-type-listing',
+        'as'   => 'leave-type-listing',
         'uses' => 'LeaveController@showLeaveType',
     ])->middleware('strip_headers');
 
     Route::get('edit-leave-type/{id}', [
-        'as' => 'edit-leave-type',
+        'as'   => 'edit-leave-type',
         'uses' => 'LeaveController@showEdit',
     ])->middleware('strip_headers');
 
     Route::post('edit-leave-type/{id}', [
-        'as' => 'edit-leave-type',
+        'as'   => 'edit-leave-type',
         'uses' => 'LeaveController@doEdit',
     ])->middleware('strip_headers');
 
     Route::get('delete-leave-type/{id}', [
-        'as' => 'delete-leave-type',
+        'as'   => 'delete-leave-type',
         'uses' => 'LeaveController@doDelete',
     ])->middleware('strip_headers');
 
     Route::get('apply-leave', [
-        'as' => 'apply-leave',
+        'as'   => 'apply-leave',
         'uses' => 'LeaveController@doApply',
     ])->middleware('strip_headers');
 
     Route::post('apply-leave', [
-        'as' => 'apply-leave',
+        'as'   => 'apply-leave',
         'uses' => 'LeaveController@processApply',
     ])->middleware('strip_headers');
 
     Route::get('my-leave-list', [
-        'as' => 'my-leave-list',
+        'as'   => 'my-leave-list',
         'uses' => 'LeaveController@showMyLeave',
     ])->middleware('strip_headers');
 
     Route::get('total-leave-list', [
-        'as' => 'total-leave-list',
+        'as'   => 'total-leave-list',
         'uses' => 'LeaveController@showAllLeave',
     ])->middleware('strip_headers');
 
@@ -274,111 +274,111 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     );
 
     Route::get('leave-drafting', [
-        'as' => 'leave-drafting',
+        'as'   => 'leave-drafting',
         'uses' => 'LeaveController@showLeaveDraft',
     ])->middleware('strip_headers');
 
     Route::post('leave-drafting', [
-        'as' => 'leave-drafting',
+        'as'   => 'leave-drafting',
         'uses' => 'LeaveController@createLeaveDraft',
     ])->middleware('strip_headers');
 
     //Routes for Attendance.
 
     Route::get('attendance-upload', [
-        'as' => 'attendance-upload',
+        'as'   => 'attendance-upload',
         'uses' => 'AttendanceController@importAttendanceFile',
     ])->middleware('strip_headers');
 
     Route::post('attendance-upload', [
-        'as' => 'attendance-upload',
+        'as'   => 'attendance-upload',
         'uses' => 'AttendanceController@uploadFile',
     ])->middleware('strip_headers');
 
     Route::get('attendance-manager', [
-        'as' => 'attendance-manager',
+        'as'   => 'attendance-manager',
         'uses' => 'AttendanceController@showSheetDetails',
     ])->middleware('strip_headers');
 
     Route::post('attendance-manager', [
-        'as' => 'attendance-manager',
+        'as'   => 'attendance-manager',
         'uses' => 'AttendanceController@searchAttendance',
     ])->middleware('strip_headers');
 
     Route::get('delete-file/{id}', [
-        'as' => 'delete-file',
+        'as'   => 'delete-file',
         'uses' => 'AttendanceController@doDelete',
     ])->middleware('strip_headers');
 
     //Routes for Assets.
 
     Route::get('add-asset', [
-        'as' => 'add-asset',
+        'as'   => 'add-asset',
         'uses' => 'AssetController@addAsset',
     ])->middleware('strip_headers');
 
     Route::post('add-asset', [
-        'as' => 'add-asset',
+        'as'   => 'add-asset',
         'uses' => 'AssetController@processAsset',
     ])->middleware('strip_headers');
 
     Route::get('asset-listing', [
-        'as' => 'asset-listing',
+        'as'   => 'asset-listing',
         'uses' => 'AssetController@showAsset',
     ])->middleware('strip_headers');
 
     Route::get('edit-asset/{id}', [
-        'as' => 'edit-asset',
+        'as'   => 'edit-asset',
         'uses' => 'AssetController@showEdit',
     ])->middleware('strip_headers');
 
     Route::post('edit-asset/{id}', [
-        'as' => 'edit-asset',
+        'as'   => 'edit-asset',
         'uses' => 'AssetController@doEdit',
     ])->middleware('strip_headers');
 
     Route::get('delete-asset/{id}', [
-        'as' => 'delete-asset',
+        'as'   => 'delete-asset',
         'uses' => 'AssetController@doDelete',
     ])->middleware('strip_headers');
 
     Route::get('assign-asset', [
-        'as' => 'assign-asset',
+        'as'   => 'assign-asset',
         'uses' => 'AssetController@doAssign',
     ])->middleware('strip_headers');
 
     Route::post('assign-asset', [
-        'as' => 'assign-asset',
+        'as'   => 'assign-asset',
         'uses' => 'AssetController@processAssign',
     ])->middleware('strip_headers');
 
     Route::get('assignment-listing', [
-        'as' => 'assignment-listing',
+        'as'   => 'assignment-listing',
         'uses' => 'AssetController@showAssignment',
     ])->middleware('strip_headers');
 
     Route::get('edit-asset-assignment/{id}', [
-        'as' => 'edit-asset-assignment',
+        'as'   => 'edit-asset-assignment',
         'uses' => 'AssetController@showEditAssign',
     ])->middleware('strip_headers');
 
     Route::post('edit-asset-assignment/{id}', [
-        'as' => 'edit-asset-assignment',
+        'as'   => 'edit-asset-assignment',
         'uses' => 'AssetController@doEditAssign',
     ])->middleware('strip_headers');
 
     Route::get('delete-asset-assignment/{id}', [
-        'as' => 'delete-asset-assignment',
+        'as'   => 'delete-asset-assignment',
         'uses' => 'AssetController@doDeleteAssign',
     ])->middleware('strip_headers');
 
     Route::get('hr-policy', [
-        'as' => 'hr-policy',
+        'as'   => 'hr-policy',
         'uses' => 'IndexController@showPolicy',
     ])->middleware('strip_headers');
 
     Route::get('download-forms', [
-        'as' => 'download-forms',
+        'as'   => 'download-forms',
         'uses' => 'IndexController@showForms',
     ])->middleware('strip_headers');
 
@@ -431,7 +431,7 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     //Routes for Event.
 
     Route::get('create-event', [
-        'as' => 'create-event',
+        'as'   => 'create-event',
         'uses' => 'EventController@index',
     ])->middleware('strip_headers');
 
@@ -623,47 +623,47 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     );
 
     Route::get('edit-project/{id}', [
-        'as' => 'edit-project',
+        'as'   => 'edit-project',
         'uses' => 'ProjectController@showEdit',
     ]);
 
     Route::post('edit-project/{id}', [
-        'as' => 'edit-project',
+        'as'   => 'edit-project',
         'uses' => 'ProjectController@doEdit',
     ]);
 
     Route::get('delete-project/{id}', [
-        'as' => 'delete-project',
+        'as'   => 'delete-project',
         'uses' => 'ProjectController@doDelete',
     ]);
 
     Route::get('assign-project', [
-        'as' => 'assign-project',
+        'as'   => 'assign-project',
         'uses' => 'ProjectController@doAssign',
     ]);
 
     Route::post('assign-project', [
-        'as' => 'assign-project',
+        'as'   => 'assign-project',
         'uses' => 'ProjectController@processAssign',
     ]);
 
     Route::get('project-assignment-listing', [
-        'as' => 'project-assignment-listing',
+        'as'   => 'project-assignment-listing',
         'uses' => 'ProjectController@showProjectAssignment',
     ]);
 
     Route::get('edit-project-assignment/{id}', [
-        'as' => 'edit-project-assignment',
+        'as'   => 'edit-project-assignment',
         'uses' => 'ProjectController@showEditAssign',
     ]);
 
     Route::post('edit-project-assignment/{id}', [
-        'as' => 'edit-project-assignment',
+        'as'   => 'edit-project-assignment',
         'uses' => 'ProjectController@doEditAssign',
     ]);
 
     Route::get('delete-project-assignment/{id}', [
-        'as' => 'delete-project-assignment',
+        'as'   => 'delete-project-assignment',
         'uses' => 'ProjectController@doDeleteAssign',
     ]);
 
@@ -684,7 +684,7 @@ Route::get('/response-headers', function () {
 
     // عرض عدد الرؤوس ومحتواها (اختياري)
     return response()->json([
-        'count' => count($headers),
+        'count'   => count($headers),
         'headers' => $headers,
     ]);
 });

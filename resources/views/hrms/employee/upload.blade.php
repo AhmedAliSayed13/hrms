@@ -114,5 +114,7 @@
     </section>
     <!-- -------------- /Content -------------- -->
 </div>
-{!! Html::script ('{{asset('')}}assets/js/pages/forms-widgets.js')!!}
+{!! Html::script(asset('assets/js/pages/forms-widgets.js')) !!}
+
+
 @endsection
