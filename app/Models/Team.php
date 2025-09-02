@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
+    protected $table = 'teams';
+    protected $guarded = [];
+    protected $hidden = ['created_at', 'updated_at'];
+    protected $fillable = ['name', 'team_id', 'manager_id', 'members'];
+
+    protected $casts = [
+    'members' => 'array',
+];
     public function employee()
     {
         return $this->hasOne(User::class, 'id', 'member_id');
@@ -17,8 +25,5 @@ class Team extends Model
         return $this->hasOne(User::class, 'id', 'manager_id');
     }
 
-    public function leader()
-    {
-        return $this->hasOne(User::class, 'id', 'leader_id');
-    }
+    
 }

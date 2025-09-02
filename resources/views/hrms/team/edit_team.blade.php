@@ -74,22 +74,7 @@
 
 
 
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label"> Select Team Leader</label>
-                                            <div class="col-md-6">
-                                                <select class="selectpicker form-control" data-done-button="true"
-                                                    name="leader_id" required>
-                                                    <option value="" selected>Select One</option>
-                                                    @foreach($leaders as $leader)
-                                                    @if($edit[0]->leader->id == $leader->id)
-                                                    <option value="{{$leader->id}}" selected>{{$leader->name}}</option>
-                                                    @else
-                                                    <option value="{{$leader->id}}">{{$leader->name}}</option>
-                                                    @endif
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
 
 
                                         <div class="form-group">
@@ -138,6 +123,9 @@
 
 </div>
 @endsection
+@push('styles')
+<link rel="stylesheet" type="text/css" href="{{asset('')}}assets/allcp/forms/css/bootstrap-select.css">
+@endpush
 @push('scripts')
 <script src="{{asset('')}}assets/allcp/forms/js/bootstrap-select.js"></script>
 @endpush

@@ -14,15 +14,9 @@ class TeamController extends Controller
     public function addTeam()
     {
         $emps = User::get();
-        $managers = User::whereHas('role', function ($q) {
-            $q->where('role_id', '16');
-        })->get();
+        $managers = User::all();
 
-        $leaders = User::whereHas('role', function ($q) {
-            $q->where('role_id', '5');
-        })->get();
-
-        return view('hrms.team.add_team', compact('emps', 'managers', 'leaders'));
+        return view('hrms.team.add_team', compact('emps', 'managers'));
     }
 
     public function processTeam(Request $request)
@@ -38,7 +32,6 @@ class TeamController extends Controller
             $addTeam->name = $request->team_name;
             $addTeam->team_id = $team_id;
             $addTeam->manager_id = $request->manager_id;
-            $addTeam->leader_id = $request->leader_id;
             $addTeam->member_id = $memberId;
             $addTeam->save();
         }
@@ -49,29 +42,24 @@ class TeamController extends Controller
 
     public function showTeam()
     {
-        $teams = Team::with(['employee', 'leader', 'manager'])->paginate(5);
+        $teams = Team::groupBy('team_id')->paginate(5);
         return view('hrms.team.show_team', compact('teams'));
     }
 
     public function showEdit($id)
     {
-        $managers = User::whereHas('role', function ($q) {
-            $q->where('role_id', '16');
-        })->get();
+        
 
-        $leaders = User::whereHas('role', function ($q) {
-            $q->where('role_id', '5');
-        })->get();
 
         $emps = User::get();
 
-        $edit = Team::with(['manager', 'leader', 'employee'])->where('team_id', $id)->get();
-
+        $edit = Team::with(['manager', 'employee'])->where('team_id', $id)->get();
+        $managers = User::get();
         $team_member = [];
         foreach ($edit as $ed) {
             $team_member[] = $ed->employee->id;
         }
-        return view('hrms.team.edit_team', compact('edit', 'managers', 'leaders', 'emps', 'team_member'));
+        return view('hrms.team.edit_team', compact('edit', 'managers',  'emps', 'team_member'));
     }
 
     public function doEdit(Request $request, $id)
@@ -79,18 +67,13 @@ class TeamController extends Controller
         $name = $request->team_name;
         $team_id = $request->id;
         $manager_id = $request->manager_id;
-        $leader_id = $request->leader_id;
         $members = $request->member_id;
 
         $edit = Team::where('team_id', $id)->first();
 
         if($edit) {
             $oldMembers = Team::where('team_id', $team_id)->get(['member_id']);
-            /*$oldLeader = Team::where('team_id', $team_id)->get('leader_id');
-            if($oldLeader->leader_id == $leader_id)
-            {
-                //true condition
-            }*/
+            
 
             foreach ($oldMembers as $oldMember) {
                 $oldmembers[] = $oldMember->member_id;
@@ -107,7 +90,6 @@ class TeamController extends Controller
                     $team->name = $name;
                     $team->team_id = $team_id;
                     $team->manager_id = $manager_id;
-                    $team->leader_id = $leader_id;
                     $team->member_id = $add;
                     $team->save();
                 }

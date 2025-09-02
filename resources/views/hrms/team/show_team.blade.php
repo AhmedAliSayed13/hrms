@@ -52,8 +52,8 @@
                                         <th class="text-center">Id</th>
                                         <th class="text-center">Team Name</th>
                                         <th class="text-center">Manager</th>
-                                        <th class="text-center">Team Leader</th>
-                                        <th class="text-center">Member</th>
+                                        {{-- <th class="text-center">Team Leader</th> --}}
+                                        {{-- <th class="text-center">Member</th> --}}
                                         <th class="text-center">Action</th>
                                     </tr>
                                     </thead>
@@ -64,8 +64,8 @@
                                             <td class="text-center">{{$i+=1}}</td>
                                             <td class="text-center">{{$team->name}}</td>
                                             <td class="text-center">{{$team->manager->name}}</td>
-                                            <td class="text-center">{{$team->leader->name}}</td>
-                                            <td class="text-center">{{$team->employee->name}}</td>
+                                            {{-- <td class="text-center">{{$team->leader->name}}</td> --}}
+                                            {{-- <td class="text-center">{{$team->employee->name}}</td> --}}
 
                                              <td class="text-center">
                                                 <div class="btn-group text-right">

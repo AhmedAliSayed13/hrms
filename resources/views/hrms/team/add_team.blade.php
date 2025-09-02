@@ -67,18 +67,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label"> Select Team Leader</label>
-                                                <div class="col-md-6">
-                                                    <select class="selectpicker form-control" data-done-button="true"
-                                                        name="leader_id" required>
-                                                        <option value="" selected>Select One</option>
-                                                        @foreach($leaders as $leader)
-                                                        <option value="{{$leader->id}}">{{$leader->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
 
                                             <div class="form-group">
                                                 <label for="multiselect2" class="col-md-3 control-label"> Select Team
