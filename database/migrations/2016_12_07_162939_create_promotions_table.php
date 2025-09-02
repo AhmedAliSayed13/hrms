@@ -20,6 +20,7 @@ class CreatePromotionsTable extends Migration
             $table->integer('old_salary');
             $table->integer('new_salary');
             $table->date('date_of_promotion');
+            $table->boolean('status')->default(0)->comment('0 = Pending, 1 = Approved, 2 = Rejected');
             $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });

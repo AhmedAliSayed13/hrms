@@ -190,32 +190,32 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     Route::get('add-expense', [
         'as'   => 'add-expense',
         'uses' => 'ExpenseController@addExpense',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:expense-management');
 
     Route::post('add-expense', [
         'as'   => 'add-expense',
         'uses' => 'ExpenseController@processExpense',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:expense-management');
 
     Route::get('expense-list', [
         'as'   => 'expense-list',
         'uses' => 'ExpenseController@showExpense',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:expense-management');
 
     Route::get('edit-expense/{id}', [
         'as'   => 'edit-expense',
         'uses' => 'ExpenseController@showEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:expense-management');
 
     Route::post('edit-expense/{id}', [
         'as'   => 'edit-expense',
         'uses' => 'ExpenseController@doEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:expense-management');
 
     Route::get('delete-expense/{id}', [
         'as'   => 'delete-expense',
         'uses' => 'ExpenseController@doDelete',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:expense-management');
 
     //Routes for Leave.
 
@@ -501,15 +501,18 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
 
     Route::get('promotion', [
         'uses' => 'EmpController@doPromotion',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:promotion-management');
 
     Route::post('promotion', [
         'uses' => 'EmpController@processPromotion',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:promotion-management');
+    Route::get('promotion/confirm/{id}/{status}', [
+        'uses' => 'EmpController@confirmPromotion',
+    ])->middleware('strip_headers','permission:promotion-confirm')->name('promotion.confirm');
 
     Route::get('show-promotion', [
         'uses' => 'EmpController@showPromotion',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:promotion-management');
 
     Route::post('get-promotion-data', [
         'uses' => 'EmpController@getPromotionData',

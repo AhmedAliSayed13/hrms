@@ -86,10 +86,8 @@ class PermissionsSeeder extends Seeder
             'reject-resignation',
 
             // 🔹 Promotion
-            'view-promotion',
-            'create-promotion',
-            'update-promotion',
-            'delete-promotion',
+            'promotion-management',
+            'promotion-confirm',
 
             // 🔹 Complaints
             'view-complaint',

@@ -16,32 +16,32 @@
 
 
     <!-- -------------- Icomoon -------------- -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/fonts/icomoon/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/icomoon/icomoon.css')}}">
 
     <!-- -------------- FullCalendar -------------- -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/js/plugins/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/js/plugins/magnific/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/js/plugins/fullcalendar/fullcalendar.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/js/plugins/magnific/magnific-popup.css')}}">
 
     <!-- -------------- Plugins -------------- -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/js/plugins/c3charts/c3.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/js/plugins/c3charts/c3.min.css')}}">
 
     <!-- -------------- CSS - theme -------------- -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/skin/default_skin/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/skin/default_skin/css/theme.css')}}">
 
 
     <!-- -------------- CSS - allcp forms -------------- -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/allcp/forms/css/forms.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/allcp/forms/css/widget.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/allcp/forms/css/forms.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/allcp/forms/css/widget.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/js/plugins/select2/css/core.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/js/plugins/select2/css/core.css')}}">
     <!-- -------------- Favicon -------------- -->
-    <link rel="shortcut icon" href="{{asset('')}}assets/img/favicon.png">
+    <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}">
 
     <!--  Custom css -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/custom.css')}}">
 
     <!-- Sweet alert -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/sweetalert.css')}}">
 
     @stack('styles')
 
@@ -594,46 +594,46 @@
     <!-- -------------- Scripts -------------- -->
 
     <!-- -------------- jQuery -------------- -->
-    <script src="{{asset('')}}assets/js/jquery/jquery-1.11.3.min.js"></script>
+    <script src="{{asset('assets/js/jquery/jquery-1.11.3.min.js')}}"></script>
     {{--<script src="{{asset('')}}assets/js/jquery/jquery-2.2.4.min.js"></script>--}}
-    <script src="{{asset('')}}assets/js/jquery/jquery_ui/jquery-ui.min.js"></script>
+    <script src="{{asset('assets/js/jquery/jquery_ui/jquery-ui.min.js')}}"></script>
 
     <!-- -------------- HighCharts Plugin -------------- -->
-    <script src="{{asset('')}}assets/js/plugins/highcharts/highcharts.js"></script>
-    <script src="{{asset('')}}assets/js/plugins/c3charts/d3.min.js"></script>
-    <script src="{{asset('')}}assets/js/plugins/c3charts/c3.min.js"></script>
+    <script src="{{asset('assets/js/plugins/highcharts/highcharts.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/c3charts/d3.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/c3charts/c3.min.js')}}"></script>
 
     <!-- -------------- Simple Circles Plugin -------------- -->
-    <script src="{{asset('')}}assets/js/plugins/circles/circles.js"></script>
+    <script src="{{asset('assets/js/plugins/circles/circles.js')}}"></script>
 
     <!-- -------------- Maps JSs -------------- -->
-    <script src="{{asset('')}}assets/js/plugins/jvectormap/jquery.jvectormap.min.js"></script>
-    <script src="{{asset('')}}assets/js/plugins/jvectormap{{asset('')}}assets/jquery-jvectormap-us-lcc-en.js">
+    <script src="{{asset('assets/js/plugins/jvectormap/jquery.jvectormap.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/jvectormap/jquery-jvectormap-us-lcc-en.js')}}">
     </script>
 
     <!-- -------------- FullCalendar Plugin -------------- -->
-    <script src="{{asset('')}}assets/js/plugins/fullcalendar/lib/moment.min.js"></script>
-    <script src="{{asset('')}}assets/js/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="{{asset('assets/js/plugins/fullcalendar/lib/moment.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
 
     <!-- -------------- Date/Month - Pickers -------------- -->
-    <script src="{{asset('')}}assets/allcp/forms/js/jquery-ui-monthpicker.min.js"></script>
-    <script src="{{asset('')}}assets/allcp/forms/js/jquery-ui-datepicker.min.js"></script>
+    <script src="{{asset('assets/allcp/forms/js/jquery-ui-monthpicker.min.js')}}"></script>
+    <script src="{{asset('assets/allcp/forms/js/jquery-ui-datepicker.min.js')}}"></script>
 
     <!-- -------------- Magnific Popup Plugin -------------- -->
-    <script src="{{asset('')}}assets/js/plugins/magnific/jquery.magnific-popup.js"></script>
+    <script src="{{asset('assets/js/plugins/magnific/jquery.magnific-popup.js')}}"></script>
 
     <!-- -------------- Theme Scripts -------------- -->
-    <script src="{{asset('')}}assets/js/utility/utility.js"></script>
-    <script src="{{asset('')}}assets/js/demo/demo.js"></script>
-    <script src="{{asset('')}}assets/js/main.js"></script>
+    <script src="{{asset('assets/js/utility/utility.js')}}"></script>
+    <script src="{{asset('assets/js/demo/demo.js')}}"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
 
     <!-- -------------- Widget JS -------------- -->
-    <script src="{{asset('')}}assets/js/demo/widgets.js"></script>
-    <script src="{{asset('')}}assets/js/demo/widgets_sidebar.js"></script>
-    <script src="{{asset('')}}assets/js/pages/dashboard1.js"></script>
+    <script src="{{asset('assets/js/demo/widgets.js')}}"></script>
+    <script src="{{asset('assets/js/demo/widgets_sidebar.js')}}"></script>
+    <script src="{{asset('assets/js/pages/dashboard1.js')}}"></script>
 
     <!-- Sweet alert -->
-    <script src="{{asset('')}}assets/js/sweetalert.min.js"></script>
+    <script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
 
     {{--@if(\Route::getFacadeRoot()->current()->uri() == 'assign-asset')--}}
     {{--<script src="{{asset('')}}assets/js/pages/forms-widgets.js"></script>--}}
@@ -684,8 +684,8 @@
     {{--@endif--}}
 
     @if(\Route::getFacadeRoot()->current()->uri() == 'edit-promotion/{id}')
-    <script src="{{asset('')}}assets/js/pages/forms-widgets.js"></script>
-    <script src="{{asset('')}}assets/js/custom.js"></script>
+    <script src="{{asset('assets/js/pages/forms-widgets.js')}}"></script>
+    <script src="{{asset('assets/js/custom.js')}}"></script>
     @endif
 
     {{--@if(\Route::getFacadeRoot()->current()->uri() == 'add-training-invite')--}}
@@ -775,17 +775,10 @@
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108812473-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-108812473-2');
-    </script>
+    
 
 
-    <script src="{{asset('')}}assets/js/pages/allcp_forms-elements.js"></script>
+    <script src="{{asset('assets/js/pages/allcp_forms-elements.js')}}"></script>
 
     @stack('scripts')
 </body>

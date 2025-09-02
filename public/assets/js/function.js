@@ -476,7 +476,7 @@ $('#update-bank-account-details').click(function () {
 });
 
 $(document).on('change', '#promotion_emp_id', function () {
-
+    alert('changed');
     var oldDesignation = $('#old_designation');
     var oldSalary = $('#old_salary');
     var emp_id = $('#promotion_emp_id').val();

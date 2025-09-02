@@ -56,6 +56,9 @@
                                                 <th class="text-center">Old Salary</th>
                                                 <th class="text-center">New Salary</th>
                                                 <th class="text-center">Date of Promotion</th>
+                                                <th class="text-center">Status</th>
+                                                <th class="text-center">Actions</th>
+
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -69,6 +72,23 @@
                                                     <td class="text-center">{{$promotion->old_salary}}</td>
                                                     <td class="text-center">{{$promotion->new_salary}}</td>
                                                     <td class="text-center">{{getFormattedDate($promotion->date_of_promotion)}}</td>
+                                                    <td class="text-center">
+                                                        @if($promotion->status == 1)
+                                                            <span class="label label-success">Approved</span>
+                                                        @elseif($promotion->status == 2)
+                                                            <span class="label label-danger">Rejected</span>
+                                                        @else
+                                                            <span class="label label-warning">Pending</span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @if($promotion->status == 0)
+                                                            <a href="{{route('promotion.confirm',['id' => $promotion->id,'status' => 1])}}" class="btn btn-success btn-xs">Approve</a>
+                                                            <a href="{{route('promotion.confirm',['id' => $promotion->id,'status' => 2])}}" class="btn btn-danger btn-xs">Reject</a>
+                                                        @else
+                                                            N/A
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                             <tr>

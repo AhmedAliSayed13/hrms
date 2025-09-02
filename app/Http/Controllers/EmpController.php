@@ -12,6 +12,8 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use App\Mail\PromotionCongratulationMail;
+use Illuminate\Support\Facades\Mail;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
@@ -602,10 +604,10 @@ class EmpController extends Controller
 
         $newDesignation  = Role::where('id', $request->new_designation)->first();
         $process         = Employee::where('id', $request->emp_id)->first();
-        $process->salary = $request->new_salary;
-        $process->save();
+        // $process->salary = $request->new_salary;
+        // $process->save();
 
-        \DB::table('user_roles')->where('user_id', $process->user_id)->update(['role_id' => $request->new_designation]);
+        // \DB::table('user_roles')->where('user_id', $process->user_id)->update(['role_id' => $request->new_designation]);
 
         $promotion                    = new Promotion();
         $promotion->emp_id            = $request->emp_id;
@@ -627,5 +629,29 @@ class EmpController extends Controller
 
         return view('hrms.promotion.show_promotion', compact('promotions'));
     }
+    public function confirmPromotion($id, $status)
+    {
+        // return $status;
+        $promotion = Promotion::where('id', $id)->first();
+        $process   = Employee::where('id', $promotion->emp_id)->first();
+        if($status == 1 && $promotion->status == 0){
+            $process->salary = $promotion->new_salary;
+            $process->save();
+            \DB::table('user_roles')->where('user_id', $process->user_id)->update(['role_id' => Role::where('name', $promotion->new_designation)->first()->id]);
+            
+            \Session::flash('flash_message', 'Employee Promotion Approved!');
+            Mail::to($promotion->employee->user->email)->send(new PromotionCongratulationMail($promotion));
+        }else{
+            \Session::flash('flash_message', 'Employee Promotion Rejected!');
+        }
+        $promotion->status = $status;
+        $promotion->save();
+        return redirect()->back();
+
+
+
+        
+    }
+    
 
 }

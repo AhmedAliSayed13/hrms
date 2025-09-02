@@ -144,6 +144,27 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{asset('')}}assets/js/pages/forms-widgets.js"></script>
-<script src="{{asset('')}}assets/js/custom.js"></script>
+<script>
+    $(document).on('change', '#promotion_emp_id', function () {
+    var oldDesignation = $('#old_designation');
+    var oldSalary = $('#old_salary');
+    var emp_id = $('#promotion_emp_id').val();
+    var token = $('#token').val();
+
+    $.post('/get-promotion-data', {'employee_id': emp_id, '_token': token}, function (data) {
+        var parsed = JSON.parse(data);
+        if (parsed.status == 'success') {
+            // alert(parsed.data.designation);
+            oldDesignation.val('');
+            oldDesignation.val(parsed.data.designation);
+            oldSalary.val('');
+            oldSalary.val(parsed.data.salary);
+        }
+        
+    });
+});
+</script>
+<script src="{{asset('assets/js/pages/forms-widgets.js')}}"></script>
+<script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="{{asset('assets/js/functions.js')}}"></script>
 @endpush
