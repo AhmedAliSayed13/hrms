@@ -638,9 +638,12 @@ class EmpController extends Controller
             $process->salary = $promotion->new_salary;
             $process->save();
             \DB::table('user_roles')->where('user_id', $process->user_id)->update(['role_id' => Role::where('name', $promotion->new_designation)->first()->id]);
-            
             \Session::flash('flash_message', 'Employee Promotion Approved!');
-            Mail::to($promotion->employee->user->email)->send(new PromotionCongratulationMail($promotion));
+                $hrEmailArray = User::whereHas('roles', function($q) {
+                    $q->whereIn('roles.id', [1, 2]); // 👈 specify roles.id
+                })->pluck('email')->toArray();
+                $hrEmailArray[] = $process->user->email;
+            Mail::to($hrEmailArray)->send(new PromotionCongratulationMail($promotion));
         }else{
             \Session::flash('flash_message', 'Employee Promotion Rejected!');
         }

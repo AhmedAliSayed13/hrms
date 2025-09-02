@@ -27,6 +27,9 @@ class TestController extends Controller
     public function test()
     {   
         
-        return $users;
+        $hrEmailArray = User::whereHas('roles', function($q) {
+    $q->whereIn('roles.id', [1, 2]); // 👈 specify roles.id
+})->pluck('email')->toArray();
+        return $hrEmailArray;
     }
 }
