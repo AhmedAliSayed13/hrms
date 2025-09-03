@@ -122,7 +122,7 @@
 
 
                 <!---------------------- Coordinator -------------------->
-                <div class="section row">
+                {{-- <div class="section row">
                     <div class="col-md-12">
                         <label for="firstname" class="field prepend-icon">
                             <select id="meeting_cordinater" class="form-control" required>
@@ -133,7 +133,7 @@
                             </select>
                         </label>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- -------------- /Coordinator -------------- -->
 
@@ -190,5 +190,32 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{asset('')}}assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{asset('assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js')}}"></script>
+<script>
+    $('#create-meeting').click(function () {
+    // alert('clicked');
+    $('#status-section').removeClass('hidden');
+    var name = $('#meeting_name').val();
+    var attendees = $('#meeting_attendees').val();
+    var date = $('#date_time').val();
+    var message = $('#meeting_description').val();
+    var token = $('#token').val();
+
+    $.post('create-meeting', {
+        'name': name,
+        'attendees': attendees,
+        'date': date,
+        'message': message,
+        '_token': token
+    }, function (data) {
+        $('#status-section').addClass('hidden');
+        $('#message-section').removeClass('hidden');
+        var parsed = JSON.parse(data);
+        if (parsed === 'success') {
+            alert(parsed);
+        }
+    });
+
+});
+</script>
 @endpush

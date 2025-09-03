@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Models\Role;
 use App\User;
+use App\Models\Meeting;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -27,9 +28,7 @@ class TestController extends Controller
     public function test()
     {   
         
-        $hrEmailArray = User::whereHas('roles', function($q) {
-    $q->whereIn('roles.id', [1, 2]); // 👈 specify roles.id
-})->pluck('email')->toArray();
-        return $hrEmailArray;
+        $meeting=Meeting::find(1);
+        return $meeting->attendees->pluck('email')->toArray();
     }
 }

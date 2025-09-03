@@ -15,10 +15,10 @@ class CreateMeetingsTable extends Migration
         Schema::create('meetings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('coordinator_id')->unsigned();
+            // $table->integer('coordinator_id')->unsigned();
             $table->dateTime('date');
             $table->string('message');
-            $table->foreign('coordinator_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('coordinator_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

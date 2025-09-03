@@ -9,6 +9,7 @@
   use App\User;
   use Illuminate\Http\Request;
   use Illuminate\Support\Facades\Mail;
+  use App\Mail\MeetingInvitationMail;
 
   class EventController extends Controller {
 
@@ -70,41 +71,28 @@
 
     public function meeting()
     {
-        $leaders = User::whereHas('role', function ($q)
-        {
-            $q->whereIn('role_id', ['1', '2', '5', '7', '14', '16']);
-        })->get();
-
-        $coordinators = [];
-
-        foreach($leaders as $leader)
-        {
-            $coordinators[] = ['id' => $leader->id, 'name' => $leader->name];
-        }
+        
 
         $users = User::get(['id', 'name']);
         $meetings = $this->convertToArray(Meeting::orderBy('date','desc')->take(9)->get());
 
-        return view('hrms.meeting.meeting_index', compact('coordinators', 'users', 'meetings'));
+        return view('hrms.meeting.meeting_index', compact( 'users', 'meetings'));
     }
 
     public function createMeeting(Request $request)
     {
 
         $name = $request->name;
-        $coordinator = $request->coordinator;
         $attendees = $request->attendees;
         $date = date_format(date_create($request->date), 'Y-m-d H:i:s');
         $message = $request->message;
 
         $meeting = new Meeting();
         $meeting->name = $name;
-        $meeting->coordinator_id = $coordinator;
         $meeting->date = $date;
         $meeting->message = $message;
         $meeting->save();
 
-        $coordinator = User::where('id', $coordinator)->first();
 
         foreach($attendees as $attendee)
         {
@@ -113,17 +101,19 @@
             $meetingAttendee->attendee_id = $attendee;
             $meetingAttendee->save();
 
-            //now we will send an email to each attendee about this event
-            $user = User::where('id', $attendee)->first();
+            // //now we will send an email to each attendee about this event
+            // $user = User::where('id', $attendee)->first();
 
-            $data = ['name' => $name, 'coordinator' => $coordinator->name, 'date' => $date, 'attendee_name' => $user->name];
+            // $data = ['name' => $name,  'date' => $date, 'attendee_name' => $user->name];
 
-            Mail::send('emails.meeting', ['data' => $data], function($message) use($user, $coordinator)
-            {
-                $message->from($coordinator->email, $coordinator->name);
-                $message->to($user->email, $user->name)->subject($coordinator->name .' has invited you to a meeting');
-            });
+            // Mail::send('emails.meeting', ['data' => $data], function($message) use($user, $coordinator)
+            // {
+            //     $message->from( $coordinator->name);
+            //     $message->to($user->email, $user->name)->subject($coordinator->name .' has invited you to a meeting');
+            // });
         }
+        $attendees = $meeting->attendees->pluck('email')->toArray();
+        Mail::to($attendees)->send(new MeetingInvitationMail($meeting));
 
         return json_encode('success');
     }

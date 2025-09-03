@@ -327,32 +327,7 @@ $('#create-event').click(function () {
 
 });
 
-$('#create-meeting').click(function () {
-    $('#status-section').removeClass('hidden');
-    var name = $('#meeting_name').val();
-    var coordinator = $('#meeting_cordinater').val();
-    var attendees = $('#meeting_attendees').val();
-    var date = $('#date_time').val();
-    var message = $('#meeting_description').val();
-    var token = $('#token').val();
 
-    $.post('create-meeting', {
-        'name': name,
-        'coordinator': coordinator,
-        'attendees': attendees,
-        'date': date,
-        'message': message,
-        '_token': token
-    }, function (data) {
-        $('#status-section').addClass('hidden');
-        $('#message-section').removeClass('hidden');
-        var parsed = JSON.parse(data);
-        if (parsed === 'success') {
-            alert(parsed);
-        }
-    });
-
-});
 
 $(document).on('change', '#qualification', function () {
     var value = $('.qualification_select').val();
