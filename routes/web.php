@@ -450,52 +450,52 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     //Routes for Award.
 
     Route::get('add-award', ['uses' => 'AwardController@addAward'])->middleware(
-        'strip_headers'
+        'strip_headers','permission:award-management'
     );
 
     Route::post('add-award', [
         'uses' => 'AwardController@processAward',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::get('award-listing', [
         'uses' => 'AwardController@showAward',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::get('edit-award/{id}', [
         'uses' => 'AwardController@showAwardEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::post('edit-award/{id}', [
         'uses' => 'AwardController@doAwardEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::get('delete-award/{id}', [
         'uses' => 'AwardController@doAwardDelete',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::get('assign-award', [
         'uses' => 'AwardController@assignAward',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::post('assign-award', [
         'uses' => 'AwardController@processAssign',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::get('awardees-listing', [
         'uses' => 'AwardController@showAwardAssign',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::get('edit-award-assignment/{id}', [
         'uses' => 'AwardController@showAssignEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::post('edit-award-assignment/{id}', [
         'uses' => 'AwardController@doAssignEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     Route::get('delete-award-assignment/{id}', [
         'uses' => 'AwardController@doAssignDelete',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:award-management');
 
     //Routes for Prmotion.
 

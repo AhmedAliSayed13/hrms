@@ -6,6 +6,8 @@ use App\Award;
 use App\Awardee;
 use App\Models\Employee;
 use App\User;
+use App\Mail\AwardMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 
@@ -76,6 +78,8 @@ class AwardController extends Controller
         $awardee->date = date_format(date_create($request->date), 'Y-m-d');
         $awardee->reason = $request->reason;
         $awardee->save();
+
+        Mail::to($awardee->employee->email)->send(new AwardMail($awardee));
 
         \Session::flash('flash_message', 'Award successfully assigned!');
         return redirect()->back();

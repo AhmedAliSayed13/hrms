@@ -62,8 +62,8 @@
                                         @foreach($assigns as $assign)
                                             <tr>
                                                 <td class="text-center">{{$i+=1}}</td>
-                                                <td class="text-center">{{$assign->employee->name}}</td>
-                                                <td class="text-center">{{$assign->award->name}}</td>
+                                                <td class="text-center">{{isset($assign->employee->name)?$assign->employee->name:'-'}}</td>
+                                                <td class="text-center">{{isset($assign->award->name)?$assign->award->name:'-'}}</td>
                                                 <td class="text-center">{{getFormattedDate($assign->date)}}</td>
                                                 <td class="text-center">{{$assign->reason}}</td>
                                                 <td class="text-center">
