@@ -10,6 +10,7 @@
   use Illuminate\Http\Request;
   use Illuminate\Support\Facades\Mail;
   use App\Mail\MeetingInvitationMail;
+  use App\Mail\EventInvitationMail;
 
   class EventController extends Controller {
 
@@ -41,6 +42,9 @@
         $eventAttendee->attendee_id = $attendee;
         $eventAttendee->save();
       }
+
+      $attendees = $event->attendees->pluck('email')->toArray();
+        Mail::to($attendees)->send(new EventInvitationMail($event));
       //return json_encode('success');
       \Session::flash('flash_message', 'event successfully saved!');
     }

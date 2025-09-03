@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\Role;
 use App\User;
 use App\Models\Meeting;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -28,7 +29,7 @@ class TestController extends Controller
     public function test()
     {   
         
-        $meeting=Meeting::find(1);
-        return $meeting->attendees->pluck('email')->toArray();
+        $event=Event::find(1);
+        return $attendees = $event->attendees->pluck('email')->toArray();
     }
 }

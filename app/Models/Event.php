@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\User;
 class Event extends Model
 {
     protected $fillable = [
@@ -11,6 +11,11 @@ class Event extends Model
     ];
     public function attendees()
     {
-        return $this->hasMany('App\Models\EventAttendee', 'event_id');
+        return $this->belongsToMany(
+            User::class,       // موديل اليوزر
+            'event_attendees',    // اسم جدول الربط
+            'event_id',           // العمود اللي بيربط بالـ meeting
+            'attendee_id'           // العمود اللي بيربط بالـ user
+        );
     }
 }
