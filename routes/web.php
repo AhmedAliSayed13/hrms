@@ -433,18 +433,18 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     Route::get('create-event', [
         'as'   => 'create-event',
         'uses' => 'EventController@index',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:event-management');
 
     Route::post('create-event', 'EventController@createEvent')->middleware(
-        'strip_headers'
+        'strip_headers','permission:event-management'
     );
 
     Route::get('create-meeting', 'EventController@meeting')->middleware(
-        'strip_headers'
+        'strip_headers','permission:meeting-management'
     );
 
     Route::post('create-meeting', 'EventController@createMeeting')->middleware(
-        'strip_headers'
+        'strip_headers','permission:meeting-management'
     );
 
     //Routes for Award.

@@ -128,7 +128,7 @@
 
 
                 <!---------------------- Coordinator -------------------->
-                <div class="section row">
+                {{-- <div class="section row">
                     <div class="col-md-12">
                         <label for="firstname" class="field prepend-icon">
                             <select id="event_cordinater" class="form-control">
@@ -139,7 +139,7 @@
                             </select>
                         </label>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- -------------- /Coordinator -------------- -->
 
@@ -164,7 +164,7 @@
                     <div class="col-md-12">
                         <label for="firstname" class="field prepend-icon">
                             <select id="event_attendees" class="form-control" multiple>
-                                <option value="">Event Attendees</option>
+                                <option value="" disabled>Event Attendees</option>
                                 @foreach($users as $user)
                                 <option value="{{$user->id}}">{{$user->name}}</option>
                                 @endforeach
@@ -224,6 +224,33 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{asset('')}}assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{asset('assets/js/plugins/datepicker/js/bootstrap-datetimepicker.min.js')}}"></script>
+<script>
 
+    $('#create-event').click(function () {
+    $('#status-section').removeClass('hidden');
+    var name = $('#event_name').val();
+    var attendees = $('#event_attendees').val();
+    var date = $('#date_time').val();
+    var message = $('#event_description').val();
+    var token = $('#token').val();
+
+    $.post('create-event', {
+        'name': name,
+        'attendees': attendees,
+        'date': date,
+        'message': message,
+        '_token': token
+    }, function (data) {
+        $('#status-section').addClass('hidden');
+        $('#message-section').removeClass('hidden');
+        var parsed = JSON.parse(data);
+
+        if (parsed === 'success') {
+            alert(parsed);
+        }
+    });
+
+});
+</script>
 @endpush

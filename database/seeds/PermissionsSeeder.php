@@ -40,6 +40,8 @@ class PermissionsSeeder extends Seeder
 
             // 🔹 Trainers
             'trainer-management',
+            'meeting-management',
+            'event-management',
 
             // 🔹 Leaves
             'create-leave',
