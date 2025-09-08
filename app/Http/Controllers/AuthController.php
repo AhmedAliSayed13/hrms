@@ -70,6 +70,10 @@
         {
             return view('hrms.auth.not_found');
         }
+        public function notAllowed()
+        {
+            return view('hrms.auth.not_allowed');
+        }
 
         public function showRegister()
         {

@@ -677,6 +677,7 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
 });
 
 Route::get('test', 'TestController@test')->name('test');
+Route::get('not-allowed', 'AuthController@notAllowed')->name('not-allowed');
 
 Route::get('/show-headers', function (\Illuminate\Http\Request $request) {
     $headersCount = $request->headers->all();
@@ -694,3 +695,4 @@ Route::get('/response-headers', function () {
         'headers' => $headers,
     ]);
 });
+
