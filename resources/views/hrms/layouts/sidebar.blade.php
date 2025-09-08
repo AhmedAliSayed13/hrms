@@ -315,7 +315,7 @@
     
 
     
-    <li class="sidebar-label pt30"> Employee Management</li>
+    {{-- <li class="sidebar-label pt30"> Employee Management</li> --}}
 {{-- Employee role --}}
         {{-- leave --}}
         <li>
@@ -334,7 +334,7 @@
                         <span class="glyphicon glyphicon-calendar"></span> My Leave List </a>
                 </li>
 
-                
+                 @if(Auth::user()->hasAnyPermission(['leave-management']))
                 <li>
                     <a href="{{route('add-leave-type')}}">
                         <span class="fa fa-desktop"></span> Add Leave Type </a>
@@ -349,41 +349,46 @@
                     <a href="{{route('total-leave-list')}}">
                         <span class="fa fa-clipboard"></span> Total Leave Listings </a>
                 </li>
+                @endif
             </ul>
         </li>
         {{-- attendance --}}
-        <li>
-            <a class="accordion-toggle" href="#">
-                <span class="fa fa-clock-o"></span>
-                <span class="sidebar-title"> Attendance </span>
-                <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-                <li>
-                    <a href="{{route('attendance-upload')}}">
-                        <span class="glyphicon glyphicon-book"></span> Upload Sheets</a>
-                </li>
+        @if(Auth::user()->hasAnyPermission(['attendance-management']))
+            <li>
+                <a class="accordion-toggle" href="#">
+                    <span class="fa fa-clock-o"></span>
+                    <span class="sidebar-title"> Attendance </span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="nav sub-nav">
+                    <li>
+                        <a href="{{route('attendance-upload')}}">
+                            <span class="glyphicon glyphicon-book"></span> Upload Sheets</a>
+                    </li>
 
-            </ul>
-        </li>
+                </ul>
+            </li>
+        @endif
+        @if(Auth::user()->hasAnyPermission(['holiday-management']))
         {{-- holiday --}}
-        <li>
-            <a class="accordion-toggle" href="#">
-                <span class="fa fa-tree"></span>
-                <span class="sidebar-title">Holiday</span>
-                <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-                <li>
-                    <a href="/add-holidays">
-                        <span class="glyphicon glyphicon-book"></span> Add Holiday </a>
-                </li>
-                <li>
-                    <a href="/holiday-listing">
-                        <span class="glyphicon glyphicon-modal-window"></span> Holiday Listings </a>
-                </li>
-            </ul>
-        </li>
+            <li>
+                <a class="accordion-toggle" href="#">
+                    <span class="fa fa-tree"></span>
+                    <span class="sidebar-title">Holiday</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="nav sub-nav">
+                    <li>
+                        <a href="/add-holidays">
+                            <span class="glyphicon glyphicon-book"></span> Add Holiday </a>
+                    </li>
+                    <li>
+                        <a href="/holiday-listing">
+                            <span class="glyphicon glyphicon-modal-window"></span> Holiday Listings </a>
+                    </li>
+                </ul>
+            </li>
+        @endif
         {{-- Download Forms    --}}
         <li>
 

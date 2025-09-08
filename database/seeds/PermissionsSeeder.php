@@ -51,20 +51,16 @@ class PermissionsSeeder extends Seeder
             'award-management',
 
             // 🔹 Attendance
-            'attendance',
-            'mark-attendance',
-            'update-attendance',
-            'delete-attendance',
+            'attendance-management',
+            
 
             
 
             
 
             // 🔹 Holidays
-            'create-holiday',
-            'holiday-list',
-            'update-holiday',
-            'delete-holiday',
+            'holiday-management',
+            
 
 
             // 🔹 Reports
