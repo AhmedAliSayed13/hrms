@@ -222,32 +222,32 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     Route::get('add-leave-type', [
         'as'   => 'add-leave-type',
         'uses' => 'LeaveController@addLeaveType',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:leave-management');
 
     Route::post('add-leave-type', [
         'as'   => 'add-leave-type',
         'uses' => 'LeaveController@processLeaveType',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:leave-management');
 
     Route::get('leave-type-listing', [
         'as'   => 'leave-type-listing',
         'uses' => 'LeaveController@showLeaveType',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:leave-management');
 
     Route::get('edit-leave-type/{id}', [
         'as'   => 'edit-leave-type',
         'uses' => 'LeaveController@showEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:leave-management');
 
     Route::post('edit-leave-type/{id}', [
         'as'   => 'edit-leave-type',
         'uses' => 'LeaveController@doEdit',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:leave-management');
 
     Route::get('delete-leave-type/{id}', [
         'as'   => 'delete-leave-type',
         'uses' => 'LeaveController@doDelete',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:leave-management');
 
     Route::get('apply-leave', [
         'as'   => 'apply-leave',
@@ -267,21 +267,24 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     Route::get('total-leave-list', [
         'as'   => 'total-leave-list',
         'uses' => 'LeaveController@showAllLeave',
-    ])->middleware('strip_headers');
+    ])->middleware('strip_headers','permission:leave-management');
 
     Route::post('total-leave-list', 'LeaveController@searchLeave')->middleware(
-        'strip_headers'
+        'strip_headers','permission:leave-management'
     );
 
-    Route::get('leave-drafting', [
-        'as'   => 'leave-drafting',
-        'uses' => 'LeaveController@showLeaveDraft',
-    ])->middleware('strip_headers');
+   
 
-    Route::post('leave-drafting', [
-        'as'   => 'leave-drafting',
-        'uses' => 'LeaveController@createLeaveDraft',
-    ])->middleware('strip_headers');
+
+    // Route::get('leave-drafting', [
+    //     'as'   => 'leave-drafting',
+    //     'uses' => 'LeaveController@showLeaveDraft',
+    // ])->middleware('strip_headers','permission:leave-management');
+
+    // Route::post('leave-drafting', [
+    //     'as'   => 'leave-drafting',
+    //     'uses' => 'LeaveController@createLeaveDraft',
+    // ])->middleware('strip_headers','permission:leave-management');
 
     //Routes for Attendance.
 
@@ -393,13 +396,13 @@ Route::group(['middleware' => ['auth', 'strip_headers']], function () {
     );
 
     Route::post('approve-leave', 'LeaveController@approveLeave')->middleware(
-        'strip_headers'
+        'strip_headers','permission:leave-management'
     );
 
     Route::post(
         'disapprove-leave',
         'LeaveController@disapproveLeave'
-    )->middleware('strip_headers');
+    )->middleware('strip_headers','permission:leave-management');
 
     Route::get('add-holidays', 'LeaveController@showHolidays')->middleware(
         'strip_headers'

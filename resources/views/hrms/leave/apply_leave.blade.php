@@ -56,9 +56,14 @@
                                                     name="leave_type" required>
                                                     <option value="" selected>Select One</option>
                                                     @foreach($leaves as $leave)
-                                                    <option value="{{$leave->id}}">{{$leave->leave_type}}</option>
+                                                        <option value="{{$leave->id}}" {{ old('leave_type') == $leave->id ? 'selected' : ''}}>{{$leave->leave_type}}</option>
                                                     @endforeach
                                                 </select>
+                                                @if ($errors->has('leave_type'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{ $errors->first('leave_type') }}</strong>
+                                                    </span>
+                                                @endif
                                             </div>
                                         </div>
 
@@ -71,8 +76,13 @@
                                                         <i class="fa fa-calendar text-alert pr10"></i>
                                                     </div>
                                                     <input type="text" id="datepicker1"
-                                                        class="select2-single form-control" name="dateFrom" required>
+                                                        class="select2-single form-control"  name="dateFrom" value="{{old('dateFrom')}}" required>
                                                 </div>
+                                                @if ($errors->has('dateFrom'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{ $errors->first('dateFrom') }}</strong>
+                                                    </span>
+                                                @endif
                                             </div>
                                             <label for="date_to" class="col-md-2 control-label"> Date To </label>
                                             <div class="col-md-3">
@@ -80,9 +90,14 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-calendar text-alert pr10"></i>
                                                     </div>
-                                                    <input type="text" id="datepicker4"
-                                                        class="select2-single form-control" name="dateTo" required>
+                                                    <input type="text" id="datepicker4" 
+                                                        class="select2-single form-control" name="dateTo" value="{{old('dateTo')}}" required>
                                                 </div>
+                                                @if ($errors->has('dateTo'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{ $errors->first('dateTo') }}</strong>
+                                                    </span>
+                                                @endif
 
                                             </div>
                                         </div>
@@ -96,9 +111,14 @@
                                                         <i class="imoon imoon-clock text-alert pr10"></i>
                                                     </div>
                                                     <input type="text" id="timepicker1"
-                                                        class="select2-single form-control" value="9:30"
+                                                        class="select2-single form-control" value="9:00" min="9:00"
                                                         name="time_from" required>
                                                 </div>
+                                                @if ($errors->has('time_from'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{ $errors->first('time_from') }}</strong>
+                                                    </span>
+                                                @endif
                                             </div>
                                             <label for="time_to" class="col-md-2 control-label"> Time To </label>
                                             <div class="col-md-3">
@@ -107,9 +127,14 @@
                                                         <i class="imoon imoon-clock text-alert pr10"></i>
                                                     </div>
                                                     <input type="text" id="timepicker4"
-                                                        class="select2-single form-control" value="18:00" name="time_to"
+                                                        class="select2-single form-control" value="18:00" max="18:00" name="time_to"
                                                         required>
                                                 </div>
+                                                @if ($errors->has('time_to'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{ $errors->first('time_to') }}</strong>
+                                                    </span>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -126,6 +151,11 @@
                                                 <input type="text" id="textarea1" class="select2-single form-control"
                                                     name="reason" required>
                                             </div>
+                                            @if ($errors->has('reason'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{ $errors->first('reason') }}</strong>
+                                                    </span>
+                                                @endif
                                         </div>
 
 

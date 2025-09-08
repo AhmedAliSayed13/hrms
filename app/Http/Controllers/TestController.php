@@ -29,7 +29,6 @@ class TestController extends Controller
     public function test()
     {   
         
-        $event=Event::find(1);
-        return $attendees = $event->attendees->pluck('email')->toArray();
+        return emailsHrAndAdmins();
     }
 }

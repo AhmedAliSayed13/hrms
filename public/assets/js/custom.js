@@ -119,6 +119,7 @@
                 prevText: '<i class="fa fa-chevron-left"></i>',
                 nextText: '<i class="fa fa-chevron-right"></i>',
                 showButtonPanel: false,
+                 minDate: 0,
                 beforeShow: function (input, inst) {
                     var newclass = 'allcp-form';
                     var themeClass = $(this).parents('.allcp-form').attr('class');
@@ -133,6 +134,7 @@
                 prevText: '<i class="fa fa-chevron-left"></i>',
                 nextText: '<i class="fa fa-chevron-right"></i>',
                 showButtonPanel: false,
+                 minDate: 0,
                 beforeShow: function (input, inst) {
                     var newclass = 'allcp-form';
                     var themeClass = $(this).parents('.allcp-form').attr('class');

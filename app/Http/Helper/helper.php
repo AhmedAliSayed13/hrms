@@ -1,5 +1,6 @@
 <?php
-
+  use Illuminate\Support\Arr;
+  use Illuminate\Support\Facades\Auth;
 function totalLeaves($leaveType)
 {
     $result = [
@@ -228,3 +229,21 @@ function qualification()
 
         return $user;
     }
+
+     function emailsHrAndAdmins()
+    {
+        $hrAndAdmins = \App\User::whereHas('roles', function($q) {
+                $q->whereIn('role_id', [1, 2]);
+            })
+            ->pluck('email')
+            ->unique()
+            ->toArray();
+
+        $user = Auth::user();
+
+        // دمج الإيميل بتاع اليوزر مع HR/Admins
+        $emails = array_merge([$user->email], $hrAndAdmins);
+
+        // إزالة أي تكرار
+        return array_unique($emails);
+}

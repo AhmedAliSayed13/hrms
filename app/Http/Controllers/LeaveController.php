@@ -11,11 +11,17 @@
   use App\Models\Team;
   use App\User;
   use Illuminate\Contracts\Mail\Mailer;
-
+  use App\Mail\Leave\LeaveApprovalMail;
+  use App\Mail\Leave\LeaveDisapprovalMail;
+  use App\Mail\Leave\ApplayLeaveMail;
+  use Illuminate\Support\Facades\Mail;
   use Illuminate\Http\Request;
   use App\Http\Requests;
   use Illuminate\Support\Facades\Input;
   use Maatwebsite\Excel\Facades\Excel;
+  use App\Http\Requests\leave\ApplyLeaveStoreRequest;
+  use Illuminate\Support\Facades\DB;
+
 
   class LeaveController extends Controller
   {
@@ -119,66 +125,53 @@
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function processApply(Request $request)
+    public function processApply(ApplyLeaveStoreRequest $request)
     {
-      $days = explode('days leave', $request->number_of_days);
-      if (sizeof($days) < 2) {
-        $days = explode('day leave', $request->number_of_days);
+      DB::beginTransaction(); 
+      try {
+          $days = explode('days leave', $request->number_of_days);
+          if (sizeof($days) < 2) {
+            $days = explode('day leave', $request->number_of_days);
+          }
+          $number_of_days = $this->wordsToNumber($days[0]);
+          
+          $leave = new EmployeeLeaves;
+          
+          
+          
+          $leave->user_id = \Auth::user()->id;
+          $leave->date_from = date_format(date_create($request->dateFrom), 'Y-m-d');
+          $leave->date_to = date_format(date_create($request->dateTo), 'Y-m-d');
+          $leave->from_time = $request->time_from;
+          $leave->to_time = $request->time_to;
+          $leave->reason = $request->reason;
+          $leave->days = $number_of_days;
+          $leave->status = '0';
+          $leave->leave_type_id = $request->leave_type;
+          $leave->save();
+        
+        
+        
+        
+        
+
+        $hrAndAdmins = emailsHrAndAdmins();
+
+
+
+
+        Mail::to($hrAndAdmins)->send(new ApplayLeaveMail($leave));
+        DB::commit();
+      } catch (\Exception $e) {
+        DB::rollBack();
+        \Log::info($e->getMessage());
+        \Log::info($e->getLine());
+        return redirect()->back()->with('flash_message', $e->getMessage());
       }
-      $number_of_days = $this->wordsToNumber($days[0]);
-
-      $leave = new EmployeeLeaves;
-
-      $team = Team::where('member_id', \Auth::user()->employee->id)->first();
-      if($team) {
-        $tl_id = $team->leader_id;
-        $manager_id = $team->manager_id;
-
-        $manager = Employee::where('id', $manager_id)->with('user')->first();
-        $teamLead = Employee::where('id', $tl_id)->with('user')->first();
-        $leave->tl_id = $tl_id;
-        $leave->manager_id = $manager_id;
-
-        $emails[] = ['email' => $manager->user->email, 'name' => $manager->user->name];
-        $emails[] = ['email' => $teamLead->user->email, 'name' => $teamLead->user->name];
-      }
-
-      $leave->user_id = \Auth::user()->id;
-      $leave->date_from = date_format(date_create($request->dateFrom), 'Y-m-d');
-      $leave->date_to = date_format(date_create($request->dateTo), 'Y-m-d');
-      $leave->from_time = $request->time_from;
-      $leave->to_time = $request->time_to;
-      $leave->reason = $request->reason;
-      $leave->days = $number_of_days;
-      $leave->status = '0';
-      $leave->leave_type_id = $request->leave_type;
-      $leave->save();
-
-
-      $leaveType = LeaveType::where('id', $request->leave_type)->first();
-
-      $emails[] = ['email' => env('HR_EMAIL'), 'name' => env('HR_NAME')];
-
-       $leaveDraft = LeaveDraft::where('leave_type_id', $request->leave_type)->first();
-
-      $subject = isset($leaveDraft->subject)? $leaveDraft->subject : '' ;
-      $user = \Auth::user();
-      $toReplace = ['%name%', '%leave_type%', '%from_date%', '%to_date%', '%days%'];
-      $replaceWith = [$user->name, $leaveType->leave_type, $request->dateFrom, $request->dateTo, $number_of_days];
-      $body = str_replace($toReplace, $replaceWith, '');
-
-      //now send a mail
-     /* $this->mailer->send('emails.leave_approval', ['body' => $body], function ($message) use ($emails, $user, $subject) {
-        foreach ($emails as $email) {
-          $message->from($user->email, $user->name);
-          $message->to($email['email'], $email['name'])->subject($subject);
-        }
-      });*/
-
-
       \Session::flash('flash_message', 'Leave successfully applied!');
       return redirect()->back();
     }
+    
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -477,12 +470,17 @@
       $leaveId = $request->leaveId;
       $remarks = $request->remarks;
       $employeeLeave = EmployeeLeaves::where('id', $leaveId)->first();
-      $user = User::where('id', $employeeLeave->user_id)->first();
-      $this->mailer->send('emails.leave_status', ['user' => $user, 'status' => 'approved', 'remarks' => $remarks ,'leave' => $employeeLeave], function($message) use($user)
-      {
-        $message->from('no-reply@dipi-ip.com', 'Digital IP Insights');
-        $message->to($user->email,$user->name)->subject('Your leave has been approved');
-      });
+      
+      
+      $emails = emailsHrAndAdmins();
+
+
+      Mail::to($emails)->send(new LeaveApprovalMail($employeeLeave));
+      // $this->mailer->send('emails.leave_status', ['user' => $user, 'status' => 'approved', 'remarks' => $remarks ,'leave' => $employeeLeave], function($message) use($user)
+      // {
+      //   $message->from('no-reply@dipi-ip.com', 'Digital IP Insights');
+      //   $message->to($user->email,$user->name)->subject('Your leave has been approved');
+      // });
 
 
       \DB::table('employee_leaves')->where('id', $leaveId)->update(['status' => '1', 'remarks' => $remarks]);
@@ -499,13 +497,16 @@
       $leaveId = $request->leaveId;
       $remarks = $request->remarks;
       $employeeLeave = EmployeeLeaves::where('id', $leaveId)->first();
-      $user = User::where('id', $employeeLeave->user_id)->first();
-      $this->mailer->send('emails.leave_status', ['user' => $user, 'status' => 'disapproved', 'remarks' => $remarks,'leave' => $employeeLeave], function($message) use($user)
-      {
-        $message->from('no-reply@dipi-ip.com', 'Digital IP Insights');
-        $message->to($user->email,$user->name)->subject('Your leave has been disapproved');
-      });
+      
+
+      
+      
+      
       \DB::table('employee_leaves')->where('id', $leaveId)->update(['status'=> '2', 'remarks' => $remarks]);
+      $emails = emailsHrAndAdmins();
+      Mail::to($emails)->send(new LeaveDisapprovalMail($employeeLeave));
+
+      
       return json_encode('success');
     }
 
